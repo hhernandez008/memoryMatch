@@ -34,6 +34,7 @@ header{
 /* end Header */
 /* Game Body */
 .row{
+    height: 90vh;
     background-image: url("../images/heather/book-bg.png");
     font-family: Times New Roman, serif;
 }
@@ -42,10 +43,11 @@ header{
     background-color: #2759af;
     border: none;
     color: #ffffff;
-    width: 15vw;
+    width: 17vw;
 }
 #game-stats{
     margin: 15% 0;
+    height: 40%;
 }
 /* Reset Button */
 #btn-reset{
@@ -88,3 +90,4 @@ header{
 .win {
     height: 100px;
 }
+
