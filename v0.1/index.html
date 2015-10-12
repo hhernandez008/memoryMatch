@@ -1,50 +1,99 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Memory Match</title>
+    <title>Match Unbound</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="script.js"></script>
+    <script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script>
+
 </head>
 <body>
-<header class="jumbotron">
-    <img src="">
-    <h1>Memory Match</h1>
-    <button class="btn reset">Reset Game</button>
-</header>
-<div class="row">
-    <div class="col-md-3">
-        <div id="game-stats" class="panel panel-default">
-            <div class="panel-heading"><h3>Stats</h3></div>
-            <div class="panel-body">
-                <p class="games-played"><span class="label label-default">Games played</span> : <span class="value"></span></p>
-                <p class="attempts"><span class="label label-default">Attempts</span> : <span class="value"></span></p>
-                <p class="accuracy"><span class="label label-default">Accuracy</span> : <span class="value"></span></p>
-            </div>
+    <!-- Header: logo, title, reset button -->
+    <header class="jumbotron">
+        <div class="col-md-2">
+            <img src="../images/heather/handbook-logo.png">
         </div>
-    </div>
-    <div class="col-md-9">
-        <div id="game-area" class="panel panel-default">
-            <div class="card">
-                <div class="front">1<img src="1.jpg" /></div>
-                <div class="back"><img src="fg.jpg" /></div>
-            </div>
-            <div class="card">
-                <div class="front">1<img src="1.jpg" /></div>
-                <div class="back"><img src="fg.jpg" /></div>
-            </div>
-            <div class="card">
-                <div class="front">2<img src="2.jpg" /></div>
-                <div class="back"><img src="fg.jpg" /></div>
-            </div>
-            <div class="card">
-                <div class="front">2<img src="2.jpg" /></div>
-                <div class="back"><img src="fg.jpg" /></div>
-            </div>
+        <div class="col-md-8">
+            <h1>
+                Match Unbound
+            </h1>
         </div>
-    </div>
-</div>
+        <div class="col-md-2">
+            <a href="#">
+                Settings
+            </a><br>
+            <a href="#">
+                About Game
+            </a><br>
+            <button id="btn-reset" class="btn reset">
+                Reset Game
+            </button>
+        </div>
+    </header> <!-- end .jumbotron, Header-->
+    <!-- Game Body -->
+    <div class="row">
+        <!-- Game Statistics: left side -->
+        <div class="col-md-3">
+            <div id="game-stats" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Stats</h3>
+                </div>
+                <div class="panel-body">
+                    <p class="games-played">
+                        <span class="label label-default">Games played</span> :
+                        <span class="value"></span>
+                    </p>
+                    <p class="attempts">
+                        <span class="label label-default">Attempts</span> :
+                        <span class="value"></span>
+                    </p>
+                    <p class="accuracy">
+                        <span class="label label-default">Accuracy</span> :
+                        <span class="value"></span>
+                    </p>
+                </div><!-- end .panel-body -->
+            </div><!-- end #game-stats, .panel, .panel-default -->
+        </div><!-- end .col-md-3 Game Statistics -->
+        <!-- Card field: right side -->
+        <div class="col-md-9">
+            <div id="game-area" class="panel panel-default">
+                <!-- Playing card set-up: .front = cards to match, .back = identical card backs -->
+                <div class="card">
+                    <div class="front">Clay<img src="../images/heather/card-fronts/clay-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+                <div class="card">
+                    <div class="front">Clay<img src="../images/heather/card-fronts/clay-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+                <div class="card">
+                    <div class="front">Deckle<img src="../images/heather/card-fronts/deckle-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+                <div class="card">
+                    <div class="front">Deckle<img src="../images/heather/card-fronts/deckle-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+                <div class="card">
+                    <div class="front">Kat<img src="../images/heather/card-fronts/kat-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+                <div class="card">
+                    <div class="front">Kat<img src="../images/heather/card-fronts/kat-card.png" /></div>
+                    <div class="back"><img src="../images/heather/penumbra-cardback.png" /></div>
+                </div>
+            </div><!-- end #game-area, .panel, .panel-default -->
+        </div><!-- end .col-md-9 -->
+    </div><!-- end .row -->
+    <!-- Second Row of cards
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+
+        </div>
+    </div><!-- end .row Second Row -->
 </body>
 
 </html>

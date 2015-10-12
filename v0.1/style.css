@@ -1,37 +1,60 @@
+/* Header */
 header{
-    height:150px;
+    height: 30vh;
+}
+.jumbotron img{
+    width: 90%;
+    margin: 0;
+    padding: 0;
+}
+.jumbotron .col-md-8 {
+    text-align: center;
 }
 header h1{
+    margin: 0;
     display: inline-block;
+    font-family: Times New Roman, serif;
+    font-weight: bold;
+}
+/* Reset Button */
+#btn-reset{
+    color: #ffffff;
+    background-color: #cf171f;
+    margin-top: 5%;
 }
 
+/* Card Field */
 #game-area{
     font-size: 0px;
 }
+.col-md-9{
+    border: none;
+}
+/* Cards */
 #game-area .card{
     height:200px;
     width:125px;
     border: 1px solid #000;
     display:inline-block;
-    margin:5px;
+    margin: 1% 2%;
     position: relative;
     cursor: pointer;
 }
-
-.card .back,
-.card .front{
+.card .back, .card .front,
+.card .back img, .card .front img {
     height:100%;
     width:100%;
     position: absolute;
 }
-
+/* Setting up card display */
 .card .back{
     z-index: 9999;
-    background-color: #ccc;
+    background-color: #2759af;
 }
 .card .front{
-    background-color: #fff;
+    background-color: #cf171f;
 }
+/* Winner screen - !!! not in index.html, where is it? */
 .win {
     height: 100px;
 }
