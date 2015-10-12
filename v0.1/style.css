@@ -3,6 +3,7 @@
     padding: 1vh;
     margin: 0;
     background-color: #fffcf2;
+    font-family: Times Times New Roman, serif;
 }
 header{
     height: 13vh;
@@ -17,7 +18,7 @@ header{
     text-align: center;
 }
 /* Page Title */
-.jumbotron .col-md-7 {
+.jumbotron .col-md-8 {
     text-align: center;
 }
 .jumbotron h1{
@@ -27,19 +28,14 @@ header{
     font-weight: bold;
 }
 /* Header Links */
-    .jumbotron div.col-md-1 a{
+    .jumbotron div.col-md-2 a{
         margin-top: 5%;
     }
-/* Reset Button */
-#btn-reset{
-    color: #ffffff;
-    background-color: #cf171f;
-    margin-top: 6%;
-}
 /* end Header */
 /* Game Body */
 .row{
     background-image: url("../images/heather/book-bg.png");
+    font-family: Times New Roman, serif;
 }
 /* Game Stats */
 #game-stats.panel, #game-stats div.panel-heading{
@@ -50,6 +46,12 @@ header{
 }
 #game-stats{
     margin: 15% 0;
+}
+/* Reset Button */
+#btn-reset{
+    color: #ffffff;
+    background-color: #cf171f;
+    margin-top: 6%;
 }
 /* Card Field */
 #game-area{
