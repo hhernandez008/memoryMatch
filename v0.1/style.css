@@ -60,7 +60,7 @@ header{
 /* Card Field */
 #game-area{
     margin-top: 1vh;
-    font-size: 0px;
+    font-size: 0;
     border: none;
     background-color: transparent;
 }
