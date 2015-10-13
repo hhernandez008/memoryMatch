@@ -41,12 +41,12 @@ header{
 /* Game Stats */
 #game-stats{
     width: 17vw;
-    height: 80vh;
+    height: 100%;
     margin: 15% 0;
 }
 #game-stats.panel, #game-stats div.panel-heading{
-    /*background-color: #2759af;
-    border: none;*/
+    background-color: #2759af;
+    border: none;
     color: #ffffff;
     width: 17vw;
 }
