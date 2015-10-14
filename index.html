@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Match Unbound</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Stylesheets: Bootstrap & Custom -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Script Libraries: JQuery, Custom, & LearningFuze -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script> -->
+</head>
+<body>
+<!-- Layout styled with bootstrap: col-sm, col-md, & col-lg -->
+    <!-- Header: logo, title, game settings & about game -->
+    <header class="jumbotron">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <img src="images/heather/handbook-logo.png">
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <img src="images/heather/title.png" alt="Match Unbound">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <a href="about.html">
+                About Game
+            </a><br>
+            <a href="#">
+                Settings
+            </a>
+        </div>
+    </header> <!-- end .jumbotron, Header-->
+    <!-- Game Body -->
+    <div class="row">
+        <!-- Game Statistics & Reset Button: left side -->
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div id="game-stats" class="panel">
+                <img id="stats-book" src="images/heather/stats-book.png">
+                <div class="panel-heading">
+                    <h3>Stats</h3>
+                </div>
+                <div class="panel-body">
+                    <p class="games-played">
+                        <span class="label label-default">Games played</span> :
+                        <span class="value"></span>
+                    </p>
+                    <p class="attempts">
+                        <span class="label label-default">Attempts</span> :
+                        <span class="value"></span>
+                    </p>
+                    <p class="accuracy">
+                        <span class="label label-default">Accuracy</span> :
+                        <span class="value"></span>
+                    </p>
+                    <!-- Reset Button -->
+                    <button id="btn-reset" class="btn reset">
+                        Reset Game
+                    </button>
+                </div><!-- end .panel-body -->
+            </div><!-- end #game-stats, .panel -->
+        </div><!-- end .col-sm-3, .col-md-3, .col-lg-3 Game Statistics -->
+        <!-- Card field (18 cards): right side -->
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <div id="game-area" class="panel panel-default">
+                <!-- Playing card set-up: .front = cards to match, .back = identical card backs -->
+                <div><!-- First row, cards 1 - 6 -->
+                    <div class="card">
+                        <div class="front">
+                            Clay
+                            <img src="images/heather/card-fronts/clay-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Clay
+                            <img src="images/heather/card-fronts/clay-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Deckle
+                            <img src="images/heather/card-fronts/deckle-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Deckle
+                            <img src="images/heather/card-fronts/deckle-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="front">
+                            Kat
+                            <img src="images/heather/card-fronts/kat-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Kat
+                            <img src="images/heather/card-fronts/kat-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>-->
+                </div><!-- end First Row -->
+                <!--<div>    Second Row, cards 7 - 12
+                    <div class="card">
+                        <div class="front">
+                            Lapin
+                            <img src="images/heather/card-fronts/lapin-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Lapin
+                            <img src="images/heather/card-fronts/lapin-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Maldavis
+                            <img src="images/heather/card-fronts/maldavis-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Maldavis
+                            <img src="images/heather/card-fronts/maldavis-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Mat
+                            <img src="images/heather/card-fronts/mat-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Mat
+                            <img src="images/heather/card-fronts/mat-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                </div>    end Second Row -->
+                <!--<div>    Third Row, cards 13 - 18
+                    <div class="card">
+                        <div class="front">
+                            Unbound Member
+                            <img src="images/heather/card-fronts/member-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Unbound Member
+                            <img src="images/heather/card-fronts/member-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Neel
+                            <img src="images/heather/card-fronts/neel-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            Neel
+                            <img src="images/heather/card-fronts/neel-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            San Francisco
+                            <img src="images/heather/card-fronts/sanfran-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="front">
+                            San Francisco
+                            <img src="images/heather/card-fronts/sanfran-card.png">
+                        </div>
+                        <div class="back">
+                            <img src="images/heather/penumbra-cardback.png">
+                        </div>
+                    </div>
+                </div>      end Third Row -->
+            </div><!-- end #game-area, .panel, .panel-default -->
+        </div><!-- end .col-sm-9, .col-md-9, .col-lg-9 -->
+    </div><!-- end .row -->
+
+</body>
+
+</html>

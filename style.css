@@ -1,0 +1,106 @@
+/* Body */
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Header */
+.jumbotron{
+    padding: 1vh;
+    margin: 0;
+    border-bottom: 0.5vw #8d5319 solid;
+    background-color: #fffcf2;
+    font-family: Times Times New Roman, serif;
+}
+header{
+    height: 13vh;
+}
+/* Header Images: logo & title */
+.jumbotron img{
+    width: 50%;
+    margin-bottom: 1%;
+}
+/* Logo */
+.jumbotron div:first-child{
+    text-align: center;
+}
+/* Page Title */
+.jumbotron div:nth-of-type(2) {
+    text-align: center;
+    margin-top: 1%;
+}
+/* Header Links */
+.jumbotron div:last-of-type{
+    margin-top: 1%;
+    font-size: 1.25em;
+}
+/* end Header */
+
+/* Game Body */
+.row{
+    height: 85%;
+    background-image: url("images/heather/book-bg.png");
+    font-family: Times New Roman, serif;
+}
+
+/* Game Stats */
+#game-stats{
+    width: 18vw;
+    height: 20vw;
+    margin: 15% 0;
+    background-color: transparent;
+}
+#stats-book{
+    width: 18vw;
+    height: 20vw;
+    z-index: -1;
+}
+#game-stats div.panel-heading, #game-stats div.panel-body{
+    position: relative;
+    left: 32%;
+    bottom: 100%;
+}
+/* Reset Button */
+#btn-reset{
+    color: #ffffff;
+    background-color: #cf171f;
+    margin-top: 6%;
+}
+/* end Stats */
+
+/* Card Field */
+#game-area{
+    margin-top: 1vh;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
+}
+/* Cards */
+#game-area .card{
+    height: 170px;
+    width: 110px;
+    border: 1px solid #000;
+    display: inline-block;
+    margin: 0.5vh 2%;
+    position: relative;
+    cursor: pointer;
+}
+.card .back, .card .front,
+.card .back img, .card .front img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+/* Setting up card display */
+.card .back{
+    z-index: 9999;
+    background-color: #2759af;
+}
+.card .front{
+    background-color: #cf171f;
+}
+/* Winner screen - !!! not in index.html, where is it? */
+.win {
+    height: 100px;
+}
+
