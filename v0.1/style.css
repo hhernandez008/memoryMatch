@@ -8,40 +8,37 @@ body{
 .jumbotron{
     padding: 1vh;
     margin: 0;
+    border-bottom: 0.5vw #8d5319 solid;
     background-color: #fffcf2;
     font-family: Times Times New Roman, serif;
 }
 header{
     height: 13vh;
 }
-/* Logo */
+/* Header Images: logo & title */
 .jumbotron img{
     width: 50%;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 1%;
 }
+/* Logo */
 .jumbotron div:first-child{
     text-align: center;
 }
 /* Page Title */
-.jumbotron .col-md-8 {
+.jumbotron div:nth-of-type(2) {
     text-align: center;
-}
-.jumbotron h1{
-    margin: 0;
-    display: inline-block;
-    font-family: Times New Roman, serif;
-    font-weight: bold;
+    margin-top: 1%;
 }
 /* Header Links */
-    .jumbotron div>a{
-        margin-top: 50%;
-    }
+.jumbotron div:last-of-type{
+    margin-top: 1%;
+    font-size: 1.25em;
+}
 /* end Header */
 
 /* Game Body */
 .row{
-    height: 90vh;
+    height: 85%;
     background-image: url("../images/heather/book-bg.png");
     font-family: Times New Roman, serif;
 }
@@ -62,11 +59,6 @@ header{
     position: relative;
     left: 32%;
     bottom: 100%;
-}
-/* Stats Headers */
-.games-played, .attempts, .accuracy {
-    background-color: transparent;
-    color: inherit;
 }
 /* Reset Button */
 #btn-reset{
