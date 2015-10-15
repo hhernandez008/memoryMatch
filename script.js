@@ -6,8 +6,8 @@
  */
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
-var total_possible_matches = 2;
-var match_counter = 0;
+var total_possible_matches = 2; //4 card game play only 2 possible matches
+var match_counter = 0; //start of game value
 
 
 /*
@@ -35,6 +35,7 @@ function card_clicked(element){
             second_card_clicked = $(element).prev().find("img").attr("src");
             //remove for final version!!!!!!!!!!!!!!!!!!
             console.log(second_card_clicked);
+            //run card_match function
             card_match(first_card_clicked, second_card_clicked);
             return second_card_clicked;
         } // end if else for first card clicked == null
@@ -48,17 +49,19 @@ function card_match(card1, card2) {
         match_counter++;
         //remove for final version!!!!!!!!!!!!!!!!!!
         console.log(match_counter);
+        //run winning function
         winning(match_counter);
         return match_counter;
     } else {
-        $(".back").delay(1200).fadeIn(0);
+        $(".back").delay(150).fadeIn(0); //2sec delay
         first_card_clicked = null;
         second_card_clicked = null;
     }
+    //remove for final version!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     console.log(first_card_clicked + " " + second_card_clicked);
 }// end function card_match
 
-//Checks if total possible matches equals the counter
+//Checks if counter equals the total possible matches
 // 1 Param
 function winning(counter){
     if (counter == total_possible_matches){
@@ -71,3 +74,14 @@ function winning(counter){
         second_card_clicked = null;
     }
 }//end function winning
+
+//Resets the game
+//0 param
+function reset( ){
+    //Remove cards & reset card backs to show
+    $(".card").fadeOut(0).delay(120).fadeIn(2).find(".back").fadeIn(0);
+    //reset values to those originally assigned
+    first_card_clicked = null;
+    second_card_clicked = null;
+    match_counter = 0;
+}
