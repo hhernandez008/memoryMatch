@@ -1,62 +1,73 @@
+/* Body */
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
 /* Header */
 .jumbotron{
     padding: 1vh;
     margin: 0;
+    border-bottom: 0.5vw #8d5319 solid;
     background-color: #fffcf2;
     font-family: Times Times New Roman, serif;
 }
 header{
     height: 13vh;
 }
-/* Logo */
+/* Header Images: logo & title */
 .jumbotron img{
     width: 50%;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 1%;
 }
+/* Logo */
 .jumbotron div:first-child{
     text-align: center;
 }
 /* Page Title */
-.jumbotron .col-md-8 {
+.jumbotron div:nth-of-type(2) {
     text-align: center;
-}
-.jumbotron h1{
-    margin: 0;
-    display: inline-block;
-    font-family: Times New Roman, serif;
-    font-weight: bold;
+    margin-top: 1%;
 }
 /* Header Links */
-    .jumbotron div.col-md-2 a{
-        margin-top: 5%;
-    }
+.jumbotron div:last-of-type{
+    margin-top: 1%;
+    font-size: 1.25em;
+}
 /* end Header */
+
 /* Game Body */
 .row{
-    height: 90vh;
+    height: 85%;
     background-image: url("../images/heather/book-bg.png");
     font-family: Times New Roman, serif;
 }
+
 /* Game Stats */
 #game-stats{
-    width: 17vw;
-    height: 100%;
+    width: 18vw;
+    height: 20vw;
     margin: 15% 0;
+    background-color: transparent;
 }
-#game-stats.panel, #game-stats div.panel-heading{
-    background-color: #2759af;
-    border: none;
-    color: #ffffff;
-    width: 17vw;
+#stats-book{
+    width: 18vw;
+    height: 20vw;
+    z-index: -1;
 }
-
+#game-stats div.panel-heading, #game-stats div.panel-body{
+    position: relative;
+    left: 32%;
+    bottom: 100%;
+}
 /* Reset Button */
 #btn-reset{
     color: #ffffff;
     background-color: #cf171f;
     margin-top: 6%;
 }
+/* end Stats */
+
 /* Card Field */
 #game-area{
     margin-top: 1vh;

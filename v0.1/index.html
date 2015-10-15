@@ -4,37 +4,39 @@
 <head>
     <title>Match Unbound</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
+    <!-- Stylesheets: Bootstrap & Custom -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Script Libraries: JQuery, Custom, & LearningFuze -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="script.js"></script>
     <script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script>
 </head>
 <body>
-    <!-- Header: logo, title, reset button -->
+<!-- Layout styled with bootstrap: col-sm, col-md, & col-lg -->
+    <!-- Header: logo, title, game settings & about game -->
     <header class="jumbotron">
-        <div class="col-sm-2 col-md-2">
+        <div class="col-sm-2 col-md-2 col-lg-2">
             <img src="../images/heather/handbook-logo.png">
         </div>
-        <div class="col-sm-8 col-md-8">
-            <h1>
-                Match Unbound
-            </h1>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <img src="../images/heather/title.png" alt="Match Unbound">
         </div>
-        <div class="col-sm-2 col-md-2">
-            <a href="#">
-                Settings
-            </a><br>
+        <div class="col-sm-2 col-md-2 col-lg-2">
             <a href="about.html">
                 About Game
+            </a><br>
+            <a href="#">
+                Settings
             </a>
         </div>
     </header> <!-- end .jumbotron, Header-->
     <!-- Game Body -->
-    <div class="row .row-eq-height">
-        <!-- Game Statistics: left side -->
-        <div class="col-sm-3 col-md-3">
-            <div id="game-stats" class="panel panel-default">
+    <div class="row">
+        <!-- Game Statistics & Reset Button: left side -->
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div id="game-stats" class="panel">
+                <img id="stats-book" src="../images/heather/stats-book.png">
                 <div class="panel-heading">
                     <h3>Stats</h3>
                 </div>
@@ -51,14 +53,15 @@
                         <span class="label label-default">Accuracy</span> :
                         <span class="value"></span>
                     </p>
+                    <!-- Reset Button -->
                     <button id="btn-reset" class="btn reset">
                         Reset Game
                     </button>
                 </div><!-- end .panel-body -->
-            </div><!-- end #game-stats, .panel, .panel-default -->
-        </div><!-- end .col-md-3 Game Statistics -->
-        <!-- Card field: right side -->
-        <div class="col-sm-9 col-md-9">
+            </div><!-- end #game-stats, .panel -->
+        </div><!-- end .col-sm-3, .col-md-3, .col-lg-3 Game Statistics -->
+        <!-- Card field (18 cards): right side -->
+        <div class="col-sm-9 col-md-9 col-lg-9">
             <div id="game-area" class="panel panel-default">
                 <!-- Playing card set-up: .front = cards to match, .back = identical card backs -->
                 <div><!-- First row, cards 1 - 6 -->
@@ -230,7 +233,7 @@
                     </div>
                 </div><!-- end Third Row -->
             </div><!-- end #game-area, .panel, .panel-default -->
-        </div><!-- end .col-md-9 -->
+        </div><!-- end .col-sm-9, .col-md-9, .col-lg-9 -->
     </div><!-- end .row -->
 
 </body>
