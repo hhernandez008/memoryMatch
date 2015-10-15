@@ -64,13 +64,13 @@
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div id="game-area" class="panel panel-default">
                 <!-- Playing card set-up: .front = cards to match, .back = identical card backs -->
-                <div><!-- First row, cards 1 - 6 -->
+                <div><!-- First row, cards 1 - 6 & Winner notice -->
                     <div class="card">
                         <div class="front">
                             Clay
                             <img src="images/heather/card-fronts/clay-card.png">
                         </div>
-                        <div class="back">
+                        <div class="back" onclick="card_clicked(this)">
                             <img src="images/heather/penumbra-cardback.png">
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                             Clay
                             <img src="images/heather/card-fronts/clay-card.png">
                         </div>
-                        <div class="back">
+                        <div class="back" onclick="card_clicked(this)">
                             <img src="images/heather/penumbra-cardback.png">
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                             Deckle
                             <img src="images/heather/card-fronts/deckle-card.png">
                         </div>
-                        <div class="back">
+                        <div class="back" onclick="card_clicked(this)">
                             <img src="images/heather/penumbra-cardback.png">
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             Deckle
                             <img src="images/heather/card-fronts/deckle-card.png">
                         </div>
-                        <div class="back">
+                        <div class="back" onclick="card_clicked(this)">
                             <img src="images/heather/penumbra-cardback.png">
                         </div>
                     </div>
@@ -119,6 +119,7 @@
                             <img src="images/heather/penumbra-cardback.png">
                         </div>
                     </div>-->
+
                 </div><!-- end First Row -->
                 <!--<div>    Second Row, cards 7 - 12
                     <div class="card">
@@ -232,6 +233,10 @@
                         </div>
                     </div>
                 </div>      end Third Row -->
+                <!-- Winner screen, only shows on game completion -->
+                <div id="winner">
+                    Congratulations you have matched all the cards!!!
+                </div>
             </div><!-- end #game-area, .panel, .panel-default -->
         </div><!-- end .col-sm-9, .col-md-9, .col-lg-9 -->
     </div><!-- end .row -->

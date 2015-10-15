@@ -99,8 +99,11 @@ header{
 .card .front{
     background-color: #cf171f;
 }
-/* Winner screen - !!! not in index.html, where is it? */
+/* Winner screen */
 .win {
+    font-size: 5vw;
+    font-weight: bold;
+    font-family: Times New Roman, serif;
     height: 100px;
 }
 
