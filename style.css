@@ -103,6 +103,12 @@ header{
 .card_flipped{
     visibility: hidden;
 }
+
+/* Ladder Movement*/
+#ladder{
+    height: 40vw;
+}
+
 /* Winner screen */
 .win {
     font-size: 5vw;
