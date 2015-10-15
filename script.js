@@ -6,7 +6,7 @@
  */
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
-var total_possible_matches = 2; //4 card game play only 2 possible matches
+var total_possible_matches = 3; //6 card game play, only 3 possible matches
 var match_counter = 0; //start of game value
 
 /*
@@ -32,6 +32,8 @@ function card_clicked(element){
         //Check value of first_card_clicked
         if (first_card_clicked == null) {
             first_card_clicked = $(element).prev().find("img").attr("src");
+            //Add class to card to mark it for future functions
+            $(element).addClass("card_flipped card1");
             //remove for final version !!!!!!!!!!!!!!!!
             console.log(first_card_clicked);
             return first_card_clicked;
@@ -40,7 +42,14 @@ function card_clicked(element){
             //remove for final version!!!!!!!!!!!!!!!!!!
             console.log(second_card_clicked);
             //run card_match function
-            card_match(first_card_clicked, second_card_clicked);
+            var matching = card_match(first_card_clicked, second_card_clicked);
+            //If the cards match set class to remain shown, else remove hiding class from the first card
+            if(matching == true){
+                $(element).addClass("card_flipped");
+                $(".card1").removeClass("card1");
+            } else {
+                $(".card1").removeClass("card_flipped card1");
+            }
             return second_card_clicked;
         } // end if else for first card clicked == null
     } // end if else for first & second card clicked != null
@@ -55,7 +64,7 @@ function card_match(card1, card2) {
         console.log(match_counter);
         //run winning function
         winning(match_counter);
-        return match_counter;
+        return true;
     } else {
         $(".back").delay(150).fadeIn(0); //2sec delay
         first_card_clicked = null;
@@ -82,6 +91,7 @@ function winning(counter){
 //Resets the game
 //0 param
 function reset( ){
+    $(".card_flipped").removeClass("card_flipped card1");
     //Remove cards & reset card backs to show
     $(".card").fadeOut(0).delay(120).fadeIn(2).find(".back").fadeIn(0);
     //Remove win screen if activated
