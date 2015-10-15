@@ -99,6 +99,10 @@ header{
 .card .front{
     background-color: #cf171f;
 }
+/* Class to be added with JS */
+.card_flipped{
+    visibility: hidden;
+}
 /* Winner screen */
 .win {
     font-size: 5vw;
