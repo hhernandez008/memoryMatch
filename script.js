@@ -9,6 +9,10 @@ var second_card_clicked = null; //to be assigned a value through function card_c
 var total_possible_matches = 2; //4 card game play only 2 possible matches
 var match_counter = 0; //start of game value
 
+/*
+    Actions
+ */
+$("card").find(".back").click(card_clicked(this));
 
 /*
     Functions
@@ -80,6 +84,8 @@ function winning(counter){
 function reset( ){
     //Remove cards & reset card backs to show
     $(".card").fadeOut(0).delay(120).fadeIn(2).find(".back").fadeIn(0);
+    //Remove win screen if activated
+    $("#winner").removeClass("win");
     //reset values to those originally assigned
     first_card_clicked = null;
     second_card_clicked = null;
