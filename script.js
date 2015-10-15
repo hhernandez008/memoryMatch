@@ -6,13 +6,17 @@
  */
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
-var total_possible_matches = 3; //6 card game play, only 3 possible matches
+var total_possible_matches = 9; //6 card game play, only 3 possible matches[Adjust based on the # of cards at game start]
 var match_counter = 0; //start of game value
 
 /*
     Actions
  */
-//Why won't this consistently work??? $("card").find(".back").click(card_clicked(this));
+
+//Why won't this work???
+// $(".card").find(".back").click(card_clicked(this));
+
+
 
 /*
     Functions
