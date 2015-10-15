@@ -12,7 +12,7 @@ var match_counter = 0; //start of game value
 /*
     Actions
  */
-$("card").find(".back").click(card_clicked(this));
+//Why won't this consistently work??? $("card").find(".back").click(card_clicked(this));
 
 /*
     Functions
