@@ -13,8 +13,7 @@ var match_counter = 0; //start of game value
     Actions
  */
 
-//Why won't this work???
-// $(".card").find(".back").click(card_clicked(this));
+//Why won't this work??? $(".back").click(card_clicked(this));
 
 
 
@@ -38,12 +37,10 @@ function card_clicked(element){
             first_card_clicked = $(element).prev().find("img").attr("src");
             //Add class to card to mark it for future functions
             $(element).addClass("card_flipped card1");
-            //remove for final version !!!!!!!!!!!!!!!!
             console.log(first_card_clicked);
             return first_card_clicked;
         } else {
             second_card_clicked = $(element).prev().find("img").attr("src");
-            //remove for final version!!!!!!!!!!!!!!!!!!
             console.log(second_card_clicked);
             //run card_match function
             var matching = card_match(first_card_clicked, second_card_clicked);
@@ -64,7 +61,6 @@ function card_clicked(element){
 function card_match(card1, card2) {
     if (card1 == card2) {
         match_counter++;
-        //remove for final version!!!!!!!!!!!!!!!!!!
         console.log(match_counter);
         //run winning function
         winning(match_counter);
@@ -74,8 +70,6 @@ function card_match(card1, card2) {
         first_card_clicked = null;
         second_card_clicked = null;
     }
-    //remove for final version!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    console.log(first_card_clicked + " " + second_card_clicked);
 }// end function card_match
 
 //Checks if counter equals the total possible matches
@@ -97,7 +91,7 @@ function winning(counter){
 function reset( ){
     $(".card_flipped").removeClass("card_flipped card1");
     //Remove cards & reset card backs to show
-    $(".card").fadeOut(0).delay(120).fadeIn(2).find(".back").fadeIn(0);
+    $(".card").fadeOut(0).delay(120).fadeIn(200).find(".back").fadeIn(0);
     //Remove win screen if activated
     $("#winner").removeClass("win");
     //reset values to those originally assigned
