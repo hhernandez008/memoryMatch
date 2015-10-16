@@ -6,15 +6,14 @@
  */
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
-var total_possible_matches = 9; //6 card game play, only 3 possible matches[Adjust based on the # of cards at game start]
+var total_possible_matches = 9; //18 card game play, 9 possible matches[Adjust based on the # of cards at game start]
 var match_counter = 0; //start of game value
 
 /*
     Actions
  */
 
-//Why won't this work??? $(".back").click(card_clicked(this));
-
+//Why won't this work??? $("div.back").click(card_clicked(this));
 
 
 /*
@@ -34,13 +33,13 @@ function card_clicked(element){
         $(element).fadeOut(0);
         //Check value of first_card_clicked
         if (first_card_clicked == null) {
-            first_card_clicked = $(element).prev().find("img").attr("src");
+            first_card_clicked = img_source(element);//find & assign card front source
             //Add class to card to mark it for future functions
             $(element).addClass("card_flipped card1");
             console.log(first_card_clicked);
             return first_card_clicked;
         } else {
-            second_card_clicked = $(element).prev().find("img").attr("src");
+            second_card_clicked = img_source(element);
             console.log(second_card_clicked);
             //run card_match function
             var matching = card_match(first_card_clicked, second_card_clicked);
@@ -60,13 +59,13 @@ function card_clicked(element){
 //2 Params
 function card_match(card1, card2) {
     if (card1 == card2) {
-        match_counter++;
+        match_counter++;//increment match_counter
         console.log(match_counter);
         //run winning function
         winning(match_counter);
         return true;
     } else {
-        $(".back").delay(150).fadeIn(0); //2sec delay
+        $(".back").delay(150).fadeIn(0); //2.5sec delay
         first_card_clicked = null;
         second_card_clicked = null;
     }
@@ -98,4 +97,11 @@ function reset( ){
     first_card_clicked = null;
     second_card_clicked = null;
     match_counter = 0;
-}
+}//end function reset
+
+//finds the clicked elements sibling .front source attribute
+//1 param
+function img_source(element){
+    var source = $(element).prev(".front").find("img").attr("src");
+    return source;
+}// end function img_source
