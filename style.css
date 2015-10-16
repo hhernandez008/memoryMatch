@@ -111,7 +111,8 @@ header{
 
 /* Ladder Movement*/
 #ladder{
-    width: 5vw;
+    float: right;
+    width: 6vw;
     height: 42vw;
 }
 
@@ -120,6 +121,7 @@ header{
     font-size: 5vw;
     font-weight: bold;
     font-family: Times New Roman, serif;
-    height: 100px;
+    height: 40vw;
+    background-color: #fffcf2;
 }
 /* end Card Field */
