@@ -5,6 +5,9 @@ var first_card_clicked = null; //to be assigned a value through function card_cl
 var second_card_clicked = null; //to be assigned a value through function card_clicked
 var total_possible_matches = 9; //18 card game play, 9 possible matches[Adjust based on the # of cards at game start]
 var match_counter = 0; //start of game value
+var num_games_played = 0;
+var num_attempts = 0;
+var play_accuracy = 0;
 
 /*
     Actions
@@ -15,7 +18,16 @@ $(document).ready(function(){
     //When card is clicked run card_clicked function
     $(".back").click(function(){
         card_clicked(this);
-    });
+    });// end .back click handler
+
+    //Assign random Member #
+    $(".member_num").append(memberNum());
+
+    //Track the number of games played
+    $(".games-played .value").append(num_games_played);
+    $(".attempts .value").append(num_attempts);
+    $(".accuracy .value").append(play_accuracy);
+
 });
 
 
@@ -30,6 +42,7 @@ $(document).ready(function(){
  * If first card - shows card face
  * If second card - shows card face & checks for match to first card
  * @param element - the card that is clicked on
+ * @return first_card_clicked value
  */
 function card_clicked(element){
     //Ensure only 2 cards viewed at a time
@@ -65,6 +78,7 @@ function card_clicked(element){
 /**
  * Check for matching cards; value of card1 & card2 is equal
  * @params card1 & card2 - value of first_card_clicked & second_card_clicked
+ * @return boolean
  */
 function card_match(card1, card2) {
     if (card1 == card2) {
@@ -116,8 +130,21 @@ function reset( ){
 /**
  * Finds the clicked element's sibling's img source attribute
  * @param element - card .back
+ * @return source
  */
 function img_source(element){
     var source = $(element).prev(".front").find("img").attr("src");
     return source;
 }; // end function img_source
+
+/**
+ * Generate and return a random 5 character code
+ * @param none
+ * @return random 5 character code
+ */
+function memberNum(){
+    var memID = Math.floor((Math.random() * 9) + 1);
+    memID = memID + "X" + Math.floor((Math.random() * 900) + 100);
+    console.log(memID)
+    return memID;
+}
