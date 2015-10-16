@@ -1,13 +1,14 @@
-/* Body */
+/* Body*/
 body{
-    width: 100vw;
-    height: 100vh;
+    width: 98.75vw;
+
 }
 
 /* Header */
 .jumbotron{
-    padding: 1vh;
+    padding: 1vh 0;
     margin: 0;
+    width: 100vw;
     border-bottom: 0.5vw #8d5319 solid;
     background-color: #fffcf2;
     font-family: Times Times New Roman, serif;
@@ -38,8 +39,9 @@ header{
 
 /* Game Body */
 .row{
-    height: 85%;
-    background-image: url("images/heather/book-bg.png");
+    height: 42vw;
+    background-image: url("images/book-bg.png");
+    background-size: contain;
     font-family: Times New Roman, serif;
 }
 
@@ -53,11 +55,12 @@ header{
 #stats-book{
     width: 18vw;
     height: 20vw;
+    margin-left: -1%;
     z-index: -1;
 }
 #game-stats div.panel-heading, #game-stats div.panel-body{
     position: relative;
-    left: 32%;
+    left: 30%;
     bottom: 100%;
 }
 /* Reset Button */
@@ -65,8 +68,9 @@ header{
     color: #ffffff;
     background-color: #cf171f;
     margin-top: 6%;
+    font-size: 1vw;
 }
-/* end Stats */
+/* end Game Stats */
 
 /* Card Field */
 #game-area{
@@ -103,10 +107,12 @@ header{
 .card_flipped{
     visibility: hidden;
 }
+/* end Cards */
 
 /* Ladder Movement*/
 #ladder{
-    height: 40vw;
+    width: 5vw;
+    height: 42vw;
 }
 
 /* Winner screen */
@@ -116,4 +122,4 @@ header{
     font-family: Times New Roman, serif;
     height: 100px;
 }
-
+/* end Card Field */
