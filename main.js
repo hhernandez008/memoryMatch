@@ -13,8 +13,11 @@ var match_counter = 0; //start of game value
     Actions
  */
 
-//Why won't this work??? $("div.back").click(card_clicked(this));
+//Why won't this work???
 
+/*$(".card").click(function (this){
+    $(this).hide();
+});*/
 
 /*
     Functions

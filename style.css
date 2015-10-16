@@ -53,16 +53,30 @@ header{
     background-color: transparent;
 }
 #stats-book{
-    width: 18vw;
-    height: 20vw;
+    width: 20vw;
+    height: 21vw;
     margin-left: -1%;
     z-index: -1;
 }
 #game-stats div.panel-heading, #game-stats div.panel-body{
     position: relative;
     left: 30%;
-    bottom: 100%;
+    bottom: 105%;
+    padding: 3% 2%;
 }
+.panel-heading h3{
+    font-weight: bold;
+    padding: 0;
+}
+#game-stats span{
+    background-color: transparent;
+    color: #000000;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 0;
+
+}
+
 /* Reset Button */
 #btn-reset{
     color: #ffffff;
@@ -74,7 +88,7 @@ header{
 
 /* Card Field */
 #game-area{
-    margin-top: 1vh;
+    margin-top: 3vh;
     font-size: 0;
     border: none;
     background-color: transparent;
@@ -121,7 +135,5 @@ header{
     font-size: 5vw;
     font-weight: bold;
     font-family: Times New Roman, serif;
-    height: 40vw;
-    background-color: #fffcf2;
 }
 /* end Card Field */
