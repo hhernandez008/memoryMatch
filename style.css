@@ -113,6 +113,10 @@ header{
 .card .back{
     z-index: 9999;
     background-color: #2759af;
+    transition-duration: 1s;
+}
+.card:hover{
+    transform: rotate3D(0, 1, 5, 5deg);
 }
 .card .front{
     background-color: #cf171f;
