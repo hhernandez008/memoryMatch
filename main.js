@@ -140,11 +140,9 @@ function img_source(element){
 /**
  * Generate and return a random 5 character code
  * @param none
- * @return random 5 character code
  */
 function memberNum(){
     var memID = Math.floor((Math.random() * 9) + 1);
     memID = memID + "X" + Math.floor((Math.random() * 900) + 100);
-    console.log(memID)
-    return memID;
-}
+    console.log(memID);
+}; // end function memberNum
