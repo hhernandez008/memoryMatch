@@ -4,10 +4,10 @@
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
 var total_possible_matches = 9; //18 card game play, 9 possible matches[Adjust based on the # of cards at game start]
-var match_counter = 0; //start of game value
-var num_games_played = 0;
-var num_attempts = 0;
-var play_accuracy = 0;
+var match_counter = 0; //start of game value, counts # of matches during game
+var attempts = 0; //counts number of times user tried to make a match
+var accuracy = 0; //Percentage of matches/attempts
+var games_played = 0; //number of games played
 
 /*
     Actions
@@ -20,13 +20,13 @@ $(document).ready(function(){
         card_clicked(this);
     });// end .back click handler
 
-    //Assign random Member #
-    $(".member_num").append(memberNum());
+    //When reset button is clicked run reset function
+    $("#btn-reset").click(function(){
+        reset();
+    }); // end #btn-reset click handler
 
-    //Track the number of games played
-    $(".games-played .value").append(num_games_played);
-    $(".attempts .value").append(num_attempts);
-    $(".accuracy .value").append(play_accuracy);
+    //Assign random Member # to go in stats book
+    $(".member_num").append(memberNum());
 
 });
 
@@ -62,12 +62,13 @@ function card_clicked(element){
         } else {
             second_card_clicked = img_source(element);
             console.log(second_card_clicked);
+            attempts++;
             //run card_match function
             var matching = card_match(first_card_clicked, second_card_clicked);
             //If the cards match add card_flipped class to keep card shown, else remove card_flipped class from the first card
             if(matching == true){
-                $(element).addClass("card_flipped");
-                $(".card1").removeClass("card1");
+                $(element).addClass("card_flipped").parent(".start_pose").removeClass("start_pose");
+                $(".card1").removeClass("card1").parent(".start_pose").removeClass("start_pose");
             } else {
                 $(".card1").removeClass("card_flipped card1");
             };// end if else matching
@@ -112,22 +113,6 @@ function winning(counter){
 }; //end function winning
 
 /**
- * Resets the game, removes classes & resets values
- * @param none
- */
-function reset( ){
-    $(".card_flipped").removeClass("card_flipped card1");
-    //Remove cards & reset card backs to show
-    $(".card").fadeOut(0).delay(120).fadeIn(200).find(".back").fadeIn(0);
-    //Remove win screen if activated
-    $("#winner").removeClass("win");
-    //reset values to those originally assigned
-    first_card_clicked = null;
-    second_card_clicked = null;
-    match_counter = 0;
-}; //end function reset
-
-/**
  * Finds the clicked element's sibling's img source attribute
  * @param element - card .back
  * @return source
@@ -138,11 +123,62 @@ function img_source(element){
 }; // end function img_source
 
 /**
- * Generate and return a random 5 character code
+ * Resets the game, removes classes & resets values
+ * @param none
+ * @return reset_stats()
+ */
+function reset(){
+    games_played++; //increment number of games started
+    //Remove cards & reset card backs to show
+    $(".card_flipped").removeClass("card_flipped card1");
+    $(".card").fadeOut(0).delay(120).fadeIn(200).find(".back").fadeIn(0);
+    //Remove win screen if activated
+    $("#winner").removeClass("win");
+    //reset values to those originally assigned
+    first_card_clicked = null;
+    second_card_clicked = null;
+    return reset_stats();
+}; //end function reset
+
+/**
+ * Display & reset game statistics, called in reset()
  * @param none
  */
+function reset_stats(){
+    display_stats(); //display statistics before resetting values
+    //reset statistic values for new game
+    accuracy = 0;
+    attempts = 0;
+    match_counter = 0;
+}; //end function reset_stats
+
+/**
+ * Display game statistics, called in reset_stats()
+ * @param none
+ */
+function display_stats(){
+    //calculate player accuracy in finding matches, display as percentage
+    if (attempts == 0){
+        accuracy = "0%"; //ensure NaN is not displayed
+    } else {
+        accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
+        console.log(accuracy + "type" + typeof accuracy);
+    }
+    //display game statistics
+    $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");
+    $(".attempts .value").replaceWith("<span class='value'>" + attempts + "</span>");
+    $(".accuracy .value").replaceWith("<span class='value'>" + accuracy + "</span>");
+};//end function display_stats
+
+/**
+ * Generate and return a random 5 character code
+ * @param none
+ * @return String memID
+ */
 function memberNum(){
-    var memID = Math.floor((Math.random() * 9) + 1);
-    memID = memID + "X" + Math.floor((Math.random() * 900) + 100);
-    console.log(memID);
+    //determine the first number
+    var memID = Math.round((Math.random() * 7) + 2);
+    // add the letter X & find the last three numbers
+    memID = memID + "X" + Math.round((Math.random() * 900) + 100);
+    return memID;//to be shown on doc
 }; // end function memberNum
