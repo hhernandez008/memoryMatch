@@ -9,14 +9,40 @@ var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
 var games_won = 0; //number of games won
-
+/*//Card variables to dynamically create cards
+var cards = $("<div>", {
+    class: "card start_pose"
+});
+var front = $("<div>", {
+    class: "front"
+});
+var front_img = $("<img>", {
+    src: "images/card-fronts/clay-card.png" //should be inputted by an array, so they are random
+});
+var back = $("<div>", {
+    class: "back"
+});
+var back_img = $("<img>", {
+    src: "images/penumbra-cardback.png"
+});
+var card_row = $("<div>")
+//end Card variables*/
 
 /*
-    Methods
+ Actions
  */
+
+/*//Put card elements together
+$(front).append(front_img);
+$(back).append(back_img);
+$(cards).append(front).append(back);*/
 
 //Start when document is done loading
 $(document).ready(function(){
+    /*// Dynamically add cards to page
+    $("#game-area").append("<div>").append(cards);
+    */
+
     //When card is clicked run card_clicked function
     $(".back").click(function(){
         card_clicked(this);
@@ -169,7 +195,6 @@ function display_stats(){
         accuracy = "0%"; //ensure NaN is not displayed
     } else {
         accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
-        console.log(accuracy + "type" + typeof accuracy);
     }
     //display game statistics
     $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");
