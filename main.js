@@ -8,6 +8,7 @@ var match_counter = 0; //start of game value, counts # of matches during game
 var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
+var games_won = 0; //number of games won
 //Card variables to dynamically create cards
 var cards = $("<div>", {
     class: "card start_pose"
@@ -139,6 +140,8 @@ function winning(counter){
     if (counter == total_possible_matches){
         // hide all cards
         $(".card").hide();
+        // increment number of games won
+        games_won++;
         // activate the win screen
         $("#winner").addClass("win");
         console.log("Winner!");
@@ -205,6 +208,7 @@ function display_stats(){
     }
     //display game statistics
     $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");
+    $(".games-won .value").replaceWith("<span class='value'>" + games_won + "</span>");
     $(".attempts .value").replaceWith("<span class='value'>" + attempts + "</span>");
     $(".accuracy .value").replaceWith("<span class='value'>" + accuracy + "</span>");
 };//end function display_stats

@@ -54,14 +54,14 @@ header{
 }
 #stats-book{
     width: 20vw;
-    height: 21vw;
+    height: 25vw;
     margin-left: -1%;
     z-index: -1;
 }
 #game-stats div.panel-heading, #game-stats div.panel-body{
     position: relative;
     left: 30%;
-    bottom: 105%;
+    bottom: 125%;
     padding: 3% 2%;
 }
 .panel-heading h3{
