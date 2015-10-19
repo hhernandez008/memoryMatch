@@ -9,46 +9,11 @@ var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
 var games_won = 0; //number of games won
-//Card variables to dynamically create cards
-var cards = $("<div>", {
-    class: "card start_pose"
-});
-var front = $("<div>", {
-    class: "front"
-});
-var front_img = $("<img>", {
-   src: "images/card-fronts/clay-card.png" //should be inputted by an array
-});
-var back = $("<div>", {
-    class: "back"
-});
-var back_img = $("<img>", {
-    src: "images/penumbra-cardback.png"
-});
-var card_row = $("<div>")
-//end Card variables
+
 
 /*
     Methods
  */
-
-/* Dynamically add cards to page
-//Place cards in web page
-$(front).append(front_img);
-$(back).append(back_img);
-$(cards).append(front).append(back);
-//append 3 divs holding 6 cards each to div #game-area
-/!*
-while (j = 0, j<6, j++){
-    $(card_row).append(cards);
-    while (i = 0, i<3, i++) {
-        $("#game-area").append(card_row)
-    };
-};
-*!/
-
-*/
-
 
 //Start when document is done loading
 $(document).ready(function(){
@@ -169,10 +134,10 @@ function img_source(element){
 function reset(){
     games_played++; //increment number of games started
     //move ladder across screen
-    $("#ladder").animate({right: "70vw"}, 500);
+    $("#ladder").animate({right: "73vw"}, 500);
     //Remove cards & reset card backs to show
     $(".card_flipped").removeClass("card_flipped card1");
-    $(".card").delay(500).fadeOut(100).delay(100).fadeIn(200).find(".back").fadeIn(0);
+    $(".card").delay(500).fadeOut(0).delay(100).fadeIn(550).find(".back").fadeIn(200);
     $("#ladder").animate({right: "0"}, 500);
     //Remove win screen if activated
     $("#winner").removeClass("win");

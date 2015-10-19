@@ -95,8 +95,8 @@ header{
 }
 /* Cards */
 #game-area .card{
-    height: 170px;
-    width: 110px;
+    height: 12vw;
+    width: 8vw;
     border: 1px solid #000;
     display: inline-block;
     margin: 0.5vh 2%;
