@@ -31,20 +31,22 @@ var card_row = $("<div>")
     Methods
  */
 
+/* Dynamically add cards to page
 //Place cards in web page
 $(front).append(front_img);
 $(back).append(back_img);
 $(cards).append(front).append(back);
 //append 3 divs holding 6 cards each to div #game-area
-/*
+/!*
 while (j = 0, j<6, j++){
     $(card_row).append(cards);
     while (i = 0, i<3, i++) {
         $("#game-area").append(card_row)
     };
 };
-*/
+*!/
 
+*/
 
 
 //Start when document is done loading
