@@ -57,8 +57,6 @@ $(document).ready(function(){
     //When reset button is clicked run reset function & move ladder
     $("#btn-reset").click(function(){
         reset();
-
-        //$("#ladder").animate({right: "0"}, slow);
     }); // end #btn-reset click handler
 
     //Assign random Member # to go in stats book
