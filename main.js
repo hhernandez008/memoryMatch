@@ -8,10 +8,34 @@ var match_counter = 0; //start of game value, counts # of matches during game
 var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
+//Card variables to dynamically create cards
+var cards = $("<div>", {
+    class: "card start_pose"
+});
+var front = $("<div>", {
+    class: "front"
+});
+var front_img = $("<img>", {
+   src = //to be inputted by an array
+});
+var back = $("<div>", {
+    class: "back"
+});
+var back_img = $("<img>", {
+    src = "images/penumbra-cardback.png"
+});
+//end Card variables
 
 /*
-    Actions
+    Methods
  */
+
+//Place cards in web page
+$(front).append(front_img);
+$(back).append(back_img);
+$(cards).append(front).append(back);
+//append 6 cards to a div
+//append 3 divs holding 6 cards each to div #game-area
 
 //Start when document is done loading
 $(document).ready(function(){
