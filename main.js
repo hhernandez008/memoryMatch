@@ -4,7 +4,7 @@
 var first_card_clicked = null; //to be assigned a value through function card_clicked
 var second_card_clicked = null; //to be assigned a value through function card_clicked
 var total_possible_matches = 9; //18 card game play, 9 possible matches[Adjust based on the # of cards at game start]
-var match_counter = 0; //start of game value, counts # of matches during game
+var match_counter = 0; //start of game value is 0, counts # of matches during game
 var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
@@ -16,6 +16,17 @@ var cards = $("<div>", {
 var front = $("<div>", {
     class: "front"
 });
+var front_img_src = [
+     "images/card-fronts/clay-card.png"
+     "images/card-fronts/deckle-card.png"
+     "images/card-fronts/kat-card.png"
+     "images/card-fronts/lapin-card.png"
+     "images/card-fronts/maldavis-card.png"
+     "images/card-fronts/mat-card.png"
+     "images/card-fronts/member-card.png"
+     "images/card-fronts/neel-card.png"
+     "images/card-fronts/sanfran-card.png"
+ ];
 var front_img = $("<img>", {
     src: "images/card-fronts/clay-card.png" //should be inputted by an array, so they are random
 });
