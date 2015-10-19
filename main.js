@@ -16,14 +16,15 @@ var front = $("<div>", {
     class: "front"
 });
 var front_img = $("<img>", {
-   src = //to be inputted by an array
+   src: "images/card-fronts/clay-card.png" //should be inputted by an array
 });
 var back = $("<div>", {
     class: "back"
 });
 var back_img = $("<img>", {
-    src = "images/penumbra-cardback.png"
+    src: "images/penumbra-cardback.png"
 });
+var card_row = $("<div>")
 //end Card variables
 
 /*
@@ -34,8 +35,17 @@ var back_img = $("<img>", {
 $(front).append(front_img);
 $(back).append(back_img);
 $(cards).append(front).append(back);
-//append 6 cards to a div
 //append 3 divs holding 6 cards each to div #game-area
+/*
+while (j = 0, j<6, j++){
+    $(card_row).append(cards);
+    while (i = 0, i<3, i++) {
+        $("#game-area").append(card_row)
+    };
+};
+*/
+
+
 
 //Start when document is done loading
 $(document).ready(function(){
@@ -44,9 +54,11 @@ $(document).ready(function(){
         card_clicked(this);
     });// end .back click handler
 
-    //When reset button is clicked run reset function
+    //When reset button is clicked run reset function & move ladder
     $("#btn-reset").click(function(){
         reset();
+
+        //$("#ladder").animate({right: "0"}, slow);
     }); // end #btn-reset click handler
 
     //Assign random Member # to go in stats book
@@ -153,9 +165,12 @@ function img_source(element){
  */
 function reset(){
     games_played++; //increment number of games started
+    //move ladder across screen
+    $("#ladder").animate({right: "70vw"}, 500);
     //Remove cards & reset card backs to show
     $(".card_flipped").removeClass("card_flipped card1");
-    $(".card").fadeOut(0).delay(120).fadeIn(200).find(".back").fadeIn(0);
+    $(".card").delay(500).fadeOut(100).delay(100).fadeIn(200).find(".back").fadeIn(0);
+    $("#ladder").animate({right: "0"}, 500);
     //Remove win screen if activated
     $("#winner").removeClass("win");
     //reset values to those originally assigned
