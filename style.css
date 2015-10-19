@@ -111,7 +111,7 @@ header{
 }
 /* Setting up card display */
 .card .back{
-    z-index: 9999;
+    z-index: 8000;
     background-color: #2759af;
 
 }
@@ -132,9 +132,11 @@ header{
 
 /* Ladder Movement*/
 #ladder{
+    position: relative;
     float: right;
     width: 6vw;
     height: 42vw;
+    z-index: 9999;
 }
 
 /* Winner screen */
