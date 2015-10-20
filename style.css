@@ -35,6 +35,7 @@ header{
     margin-top: 1%;
     font-size: 1.25em;
 }
+
 /* end Header */
 
 /* Game Body */
@@ -118,7 +119,7 @@ header{
 /*.card{
     transition-duration: 1s;
 }*/
-.start_pose:hover{
+.wiggle:hover{
     transform: rotateY(15deg);
 }
 .card .front{
@@ -136,13 +137,69 @@ header{
     float: right;
     width: 6vw;
     height: 42vw;
-    z-index: 9999;
+    z-index: 9000;
 }
 
 /* Winner screen */
-.win {
+.win{
     font-size: 5vw;
     font-weight: bold;
     font-family: Times New Roman, serif;
 }
 /* end Card Field */
+
+/* Modals */
+.modal{
+    z-index: 9999;
+}
+.modal-dialog{
+    width: 80vw;
+}
+.modal-title{
+    font-family: Times New Roman, serif;
+    text-align: center;
+}
+.modal-body .row{
+    height: 30vw;
+    background-image: none;
+    font-size: 120%;
+}
+/* About Game */
+#profile_pic{
+    float: right;
+    height: 10vw;
+    margin-right: 1vw;
+}
+/* end Modals */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

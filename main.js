@@ -9,26 +9,26 @@ var attempts = 0; //counts number of times user tried to make a match
 var accuracy = 0; //Percentage of matches/attempts
 var games_played = 0; //number of games played
 var games_won = 0; //number of games won
-/*//Card variables to dynamically create cards
+//Card variables to dynamically create cards
 var cards = $("<div>", {
-    class: "card start_pose"
+    class: "card wiggle"
 });
 var front = $("<div>", {
     class: "front"
 });
 var front_img_src = [
-     "images/card-fronts/clay-card.png"
-     "images/card-fronts/deckle-card.png"
-     "images/card-fronts/kat-card.png"
-     "images/card-fronts/lapin-card.png"
-     "images/card-fronts/maldavis-card.png"
-     "images/card-fronts/mat-card.png"
-     "images/card-fronts/member-card.png"
-     "images/card-fronts/neel-card.png"
+     "images/card-fronts/clay-card.png",
+     "images/card-fronts/deckle-card.png",
+     "images/card-fronts/kat-card.png",
+     "images/card-fronts/lapin-card.png",
+     "images/card-fronts/maldavis-card.png",
+     "images/card-fronts/mat-card.png",
+     "images/card-fronts/member-card.png",
+     "images/card-fronts/neel-card.png",
      "images/card-fronts/sanfran-card.png"
  ];
 var front_img = $("<img>", {
-    src: "images/card-fronts/clay-card.png" //should be inputted by an array, so they are random
+    src: front_img_src[Math.floor(Math.random() * front_img_src.length)] //inputted by an array
 });
 var back = $("<div>", {
     class: "back"
@@ -37,22 +37,21 @@ var back_img = $("<img>", {
     src: "images/penumbra-cardback.png"
 });
 var card_row = $("<div>")
-//end Card variables*/
+//end Card variables
 
 /*
  Actions
  */
 
-/*//Put card elements together
-$(front).append(front_img);
-$(back).append(back_img);
-$(cards).append(front).append(back);*/
 
 //Start when document is done loading
 $(document).ready(function(){
-    /*// Dynamically add cards to page
+    // Dynamically add cards to page
+    //Put card elements together
+     $(front).append(front_img);
+     $(back).append(back_img);
+     $(cards).append(front, back);
     $("#game-area").append("<div>").append(cards);
-    */
 
     //When card is clicked run card_clicked function
     $(".back").click(function(){
@@ -95,7 +94,7 @@ function card_clicked(element){
         if (first_card_clicked == null) {
             first_card_clicked = img_source(element);//find & assign card front source
             //Add class to card to mark it for future functions
-            $(element).addClass("card_flipped card1");
+            $(element).addClass("card_flipped card1").parent().removeClass("wiggle");
             console.log(first_card_clicked);
             return first_card_clicked;
         } else {
@@ -106,9 +105,10 @@ function card_clicked(element){
             var matching = card_match(first_card_clicked, second_card_clicked);
             //If the cards match add card_flipped class to keep card shown, else remove card_flipped class from the first card
             if(matching == true){
-                $(element).addClass("card_flipped").parent(".start_pose").removeClass("start_pose");
-                $(".card1").removeClass("card1").parent(".start_pose").removeClass("start_pose");
+                $(element).addClass("card_flipped").parent(".wiggle").removeClass("wiggle");
+                $(".card1").removeClass("card1");
             } else {
+                $(".card1").parent().addClass("wiggle");
                 $(".card1").removeClass("card_flipped card1");
             };// end if else matching
         }; // end if else for first card clicked == null
@@ -205,7 +205,13 @@ function display_stats(){
     if (attempts == 0){
         accuracy = "0%"; //ensure NaN is not displayed
     } else {
-        accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
+        //adjust accuracy if full game not played
+        if (match_counter < total_possible_matches){
+            var matches = match_counter / total_possible_matches;
+            accuracy = Math.round((matches / attempts) * 100) + "%";//round out decimals
+        } else {
+            accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
+        }
     }
     //display game statistics
     $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");

@@ -7,8 +7,9 @@
     <!-- Stylesheets: Bootstrap & Custom -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Script Libraries: JQuery, Custom -->
+    <!-- Script Libraries: JQuery, Bootstrap.js, & Custom -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
 
 </head>
@@ -23,10 +24,10 @@
             <img src="images/title.png" alt="Match Unbound">
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">
-            <a href="about.html">
+            <a href="#about_game" data-toggle="modal" data-backdrop="static">
                 About Game
             </a><br>
-            <a href="#">
+            <a href="#settings" data-toggle="modal" data-backdrop="static">
                 Settings
             </a>
         </div>
@@ -78,7 +79,7 @@
             <div id="game-area" class="panel panel-default">
                 <!-- Playing card set-up: .front = cards to match, .back = identical card backs -->
                 <div><!-- First row, cards 1 - 6 & Winner notice -->
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Clay
                             <img src="images/card-fronts/clay-card.png">
@@ -87,7 +88,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Clay
                             <img src="images/card-fronts/clay-card.png">
@@ -96,7 +97,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Deckle
                             <img src="images/card-fronts/deckle-card.png">
@@ -105,7 +106,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Deckle
                             <img src="images/card-fronts/deckle-card.png">
@@ -114,7 +115,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Kat
                             <img src="images/card-fronts/kat-card.png">
@@ -123,7 +124,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Kat
                             <img src="images/card-fronts/kat-card.png">
@@ -134,7 +135,7 @@
                     </div>
                 </div><!-- end First Row -->
                 <div> <!-- Second Row, cards 7 - 12 -->
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Lapin
                             <img src="images/card-fronts/lapin-card.png">
@@ -143,7 +144,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Lapin
                             <img src="images/card-fronts/lapin-card.png">
@@ -152,7 +153,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Maldavis
                             <img src="images/card-fronts/maldavis-card.png">
@@ -161,7 +162,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Maldavis
                             <img src="images/card-fronts/maldavis-card.png">
@@ -170,7 +171,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Mat
                             <img src="images/card-fronts/mat-card.png">
@@ -179,7 +180,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Mat
                             <img src="images/card-fronts/mat-card.png">
@@ -190,7 +191,7 @@
                     </div>
                 </div> <!-- end Second Row -->
                 <div> <!-- Third Row, cards 13 - 18 -->
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Unbound Member
                             <img src="images/card-fronts/member-card.png">
@@ -199,7 +200,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Unbound Member
                             <img src="images/card-fronts/member-card.png">
@@ -208,7 +209,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 Neel
                             <img src="images/card-fronts/neel-card.png">
@@ -217,7 +218,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 Neel
                             <img src="images/card-fronts/neel-card.png">
@@ -226,7 +227,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             1 San Francisco
                             <img src="images/card-fronts/sanfran-card.png">
@@ -235,7 +236,7 @@
                             <img src="images/penumbra-cardback.png">
                         </div>
                     </div>
-                    <div class="card start_pose">
+                    <div class="card wiggle">
                         <div class="front">
                             2 San Francisco
                             <img src="images/card-fronts/sanfran-card.png">
@@ -255,6 +256,114 @@
             <img src="images/ladder.png" id="ladder">
         </div>
     </div><!-- end .row -->
+
+<!-- Modals -->
+<!-- Settings Modal -->
+<div class="modal fade" id="settings" role="dialog">
+    <div class="modal-dialog">
+        <!-- Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- X close button -->
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h1 class="modal-title">
+                    Game Settings
+                </h1>
+            </div><!-- end .modal-header -->
+            <div class="modal-body">
+            <p>
+                This area will display game play & settings
+            </p>
+            </div>
+            <!-- Close button -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    CLOSE
+                </button>
+            </div>
+        </div><!-- end .modal-content -->
+    </div><!-- end .modal-dialog -->
+</div><!-- end .modal .fade #settings -->
+<!-- About Game Modal -->
+<div id="about_game" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Content-->
+        <div class="modal-content">
+            <!-- X close button -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h1 class="modal-title">
+                    About Match Unbound
+                </h1>
+
+            </div><!-- end .modal-header -->
+            <div class="modal-body">
+                <div class="row row-eq-height">
+                    <!-- Game Description -->
+                    <div class="col-md-4">
+                        <h3>
+                            About The Game
+                        </h3>
+                        <p>The memory matching game &#34;Match Unbound&#34; was inspired by the book <em>Mr. Penumbra's 24-Hour Bookstore</em>.
+                           The cards draw on character traits and locations throughout the book. This lead to the title being &#34;Match
+                           Unbound&#34;, as some of the characters in the book are considered Unbound in their &#34;book club&#34;.
+                        </p>
+                    </div><!-- end .col-md-4, Game Description
+                    <!-- Skill List -->
+                    <div id="skill_list" class="col-md-4">
+                        <h3>
+                            Skills Used In Game Production
+                        </h3>
+                        <ul>
+                            <li>
+                                HTML
+                            </li>
+                            <li>
+                                CSS &amp; Bootstrap Framework
+                            </li>
+                            <li>
+                                JavaScript &amp; jQuery Library
+                            </li>
+                            <li>
+                                GNU Image Manipulation Program (GIMP)
+                            </li>
+                        </ul>
+                    </div><!-- end #skill_list, .col-md-4, Skills -->
+                    <!-- Developer Pic & links -->
+                    <div class="col-md-4">
+                        <h3>
+                            The Developer
+                        </h3>
+                        <img id="profile_pic" src="images/Heather.jpg" alt="Photo of the Developer">
+                        <p>
+                            <strong>
+                                Heather Hernandez
+                            </strong>
+                        </p>
+
+                        <p>
+                            View Heather's
+                            <a href="#">other work</a><!-- Need to update: Projects section (profile site) -->
+                            and additional
+                            <a href="#">information</a><!-- Need to update: About Me section (profile site) -->
+                            about her.
+                        </p>
+                    </div><!-- end .col-md-4, Developer Pic & links -->
+                </div><!-- end .row -->
+            </div><!-- end .modal-body -->
+            <!-- Close button -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    CLOSE
+                </button>
+            </div>
+        </div><!-- end .modal-content -->
+    </div><!-- end .modal-dialog -->
+</div><!-- end .modal .fade #about_game -->
 
 </body>
 
