@@ -23,7 +23,7 @@ var front_images = [
      "images/card-fronts/sanfran-card.png"
  ];
 
-var gameArea = $("#game-area");
+
 
 /*
  Actions
@@ -31,6 +31,8 @@ var gameArea = $("#game-area");
 
 //Start
 $(function(){
+    var gameArea = $("#game-area");
+
     // Dynamically add cards to page
     gameArea.prepend(place_cards());
 
@@ -42,6 +44,7 @@ $(function(){
     //When reset button is clicked run reset function & move ladder
     $("#btn-reset").click(function(){
         reset();
+
     });
 
     //Assign random Member # to display in stats book
@@ -69,12 +72,10 @@ function place_cards() {
                 class: "front"
             });
         var img_index = Math.floor(Math.random() * front_images_copy.length);
-        console.log(i + "  " + img_index);
         var $front_img = $("<img>", {
                 src: front_images_copy[img_index] //inputted from front_images array
             });
         front_images_copy.splice(img_index, 1);
-        console.log(front_images_copy);
         var $card_back = $("<div>", {
                 class: "back"
             });
@@ -112,11 +113,9 @@ function card_clicked(element){
             first_card_clicked = img_source(element);//find & assign card front source
             //Add class to card to mark it for future functions
             $(element).addClass("card_flipped card1").parent().removeClass("wiggle");
-            console.log(first_card_clicked);
             return first_card_clicked;
         } else {
             second_card_clicked = img_source(element);
-            console.log(second_card_clicked);
             attempts++;
             //run card_match function
             var matching = card_match(first_card_clicked, second_card_clicked);
@@ -139,12 +138,11 @@ function card_clicked(element){
 function card_match(card1, card2) {
     if (card1 == card2) {
         match_counter++;//increment match_counter
-        console.log(match_counter);
         //run winning function
         winning(match_counter);
         return true;
     } else {
-        $(".back").delay(150).fadeIn(0); //2.5sec delay
+        $(".back").delay(300).fadeIn(0);
         first_card_clicked = null;
         second_card_clicked = null;
     }
@@ -162,7 +160,6 @@ function winning(counter){
         games_won++;
         // activate the win screen
         $("#winner").addClass("win");
-        console.log("Winner!");
     } else{
         first_card_clicked = null;
         second_card_clicked = null;
@@ -185,14 +182,17 @@ function img_source(element){
  */
 function reset(){
     games_played++; //increment number of games started
-    //move ladder across screen
-    $("#ladder").animate({right: "73vw"}, 500);
-    //Remove cards & reset card backs to show
-    $(".card_flipped").removeClass("card_flipped card1");
-    $(".card").delay(500).fadeOut(0).delay(100).fadeIn(550).find(".back").fadeIn(200);
-    $("#ladder").animate({right: "0"}, 500);
     //Remove win screen if activated
     $("#winner").removeClass("win");
+    //move ladder across screen & insert new cards
+    $("#ladder").animate({right: "73vw"}, 500).delay(100).animate({right: "0"}, 500, (function(){
+        $(".card").remove();
+        place_cards();
+    }));
+    //Remove cards & reset card backs to show
+    $(".card_flipped").removeClass("card_flipped card1");
+    $(".card").delay(200).fadeOut(200).delay(100).fadeIn(550).find(".back").fadeIn(200);
+
     //reset values to those originally assigned
     first_card_clicked = null;
     second_card_clicked = null;
