@@ -210,9 +210,14 @@ function reset_stats(){
     accuracy = 0;
     attempts = 0;
     match_counter = 0;
+    //reset displayed stats
+    $(".attempts .value").text(attempts);
+    $(".accuracy .value").text(accuracy + "%");
 } //end function reset_stats
 
-
+/**
+ * Update stats during game play
+ */
 function update_stats(){
     //calculate player accuracy in finding matches, display as percentage
     if (attempts == 0){
@@ -220,8 +225,8 @@ function update_stats(){
     } else {
         accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
     }
-    $(".attempts .value").replaceWith("<span class='value'>" + attempts + "</span>");
-    $(".accuracy .value").replaceWith("<span class='value'>" + accuracy + "</span>");
+    $(".attempts .value").text(attempts);
+    $(".accuracy .value").text(accuracy);
 }
 
 /**
@@ -229,8 +234,8 @@ function update_stats(){
  */
 function display_stats(){
     //display game statistics
-    $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");
-    $(".games-won .value").replaceWith("<span class='value'>" + games_won + "</span>");
+    $(".games-played .value").text(games_played);
+    $(".games-won .value").text(games_won);
 }//end function display_stats
 
 /**
