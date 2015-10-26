@@ -53,6 +53,7 @@ $(function(){
 });
 
 
+
 /*
     Functions
  */
@@ -126,6 +127,7 @@ function card_clicked(element){
             } else {
                 $(".card1").removeClass("card_flipped card1").parent().addClass("wiggle");
             } // end if else matching
+            update_stats();
         } // end if else for first card clicked == null
 } // end function card_clicked
 
@@ -210,27 +212,25 @@ function reset_stats(){
     match_counter = 0;
 } //end function reset_stats
 
-/**
- * Display game statistics, called in reset_stats()
- */
-function display_stats(){
+
+function update_stats(){
     //calculate player accuracy in finding matches, display as percentage
     if (attempts == 0){
         accuracy = "0%"; //ensure NaN is not displayed
     } else {
-        //adjust accuracy if full game not played
-        if (match_counter < total_possible_matches){
-            var matches = match_counter / total_possible_matches;
-            accuracy = Math.round((matches / attempts) * 100) + "%";//round out decimals
-        } else {
-            accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
-        }
+        accuracy = Math.round((match_counter / attempts) * 100) + "%";//round out decimals
     }
+    $(".attempts .value").replaceWith("<span class='value'>" + attempts + "</span>");
+    $(".accuracy .value").replaceWith("<span class='value'>" + accuracy + "</span>");
+}
+
+/**
+ * Display game statistics, called in reset_stats()
+ */
+function display_stats(){
     //display game statistics
     $(".games-played .value").replaceWith("<span class='value'>" + games_played + "</span>");
     $(".games-won .value").replaceWith("<span class='value'>" + games_won + "</span>");
-    $(".attempts .value").replaceWith("<span class='value'>" + attempts + "</span>");
-    $(".accuracy .value").replaceWith("<span class='value'>" + accuracy + "</span>");
 }//end function display_stats
 
 /**
