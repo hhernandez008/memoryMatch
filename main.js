@@ -144,7 +144,7 @@ function card_match(card1, card2) {
         winning(match_counter);
         return true;
     } else {
-        $(".back").delay(300).fadeIn(0);
+        $(".back").delay(500).fadeIn(0);
         first_card_clicked = null;
         second_card_clicked = null;
     }
