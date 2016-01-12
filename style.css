@@ -1,11 +1,12 @@
 body{
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     height: 100vh;
 }
 
 /* Navigation Bar */
 .navigation{
+    height: 11%;
     padding: 2%;
     padding-bottom: 0;
     box-sizing: content-box;
@@ -39,6 +40,7 @@ body{
     font-size: 1.2em;
     color: #ffffff;
     margin-right: 2%;
+    width: 13%;
 }
 .file{
     width: 15%;
@@ -62,30 +64,42 @@ body{
     background: url("images/sherlock.png") #ead295 no-repeat;
     background-size: 100%;
     background-position: left;
-    height: 100%;
-    /*display: inline-block;*/
+    position: relative;
+    height: 85.5%;
 }
 .background>div{
     display: inline-block;
 }
-
 /* Clue Area */
-.clues{
-    flex: 1 100%;
+#clueArea{
     width: 19%;
+    height: 100%;
     background: rgba(226, 217, 209, 0.7);
-    border: 1px solid rgb(226, 217, 209);
     border-radius: 0 5px 5px 0;
-    height: 50%;
+    position: relative;
 }
-.clues>.subtitle{
+#clueArea>.subtitle{
     font-weight: bold;
+}
+.clue{
+    width: 50px;
+    height: 50px;
+    border: 2px solid gray;
+    border-radius: 100%;
+    position: relative;
+    display: inline-block;
+}
+.clue:nth-of-type(odd){
+
+}
+.clue:nth-of-type(even){
+
 }
 
 /* Card Area */
 #gameArea{
-    flex: 1 100%;
     width: 80%;
+    height: 100%;
 }
 /* Cards */
 .back{

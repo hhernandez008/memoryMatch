@@ -36,3 +36,54 @@ var statistics = function(){
     };
 };
 
+var card = function(cardArray, cardBackSrc){
+    var card = this;
+    card.gameCards = [];
+    card.gameCardsDouble = [];
+
+    card.cardList = function(numberMatches){
+        for(var i = numberMatches; i > 0; i--){
+            var index = (Math.floor(Math.random() * cardArray.length));
+            card.gameCards.push(cardArray[index]);
+            cardArray.splice(index, 1);
+        }
+        //create array with two each of the card images
+        card.gameCardsCopy = card.gameCards.concat(card.gameCards);
+    };
+
+    card.faceSrc = function(){
+        var index = (Math.floor(Math.random() * card.gameCardsDouble.length));
+        var imageSrc = card.gameCardsDouble[index];
+        card.gameCardsDouble.splice(index, 1);
+        return imageSrc;
+    };
+
+    card.cardCreator = function(){
+        var $cardContainer = $("<div>",{
+            class: "card"
+        });
+        var $cardBack = $("<div>", {
+            class: "back"
+        });
+        var $backImage = $("<img>", {
+            src: cardBackSrc
+        });
+        $($cardBack).append($backImage);
+
+        var $cardFront = $("<div>", {
+            class: "front"
+        });
+        var $frontImage = $("<img>", {
+            src: card.faceSrc()
+        });
+        $($cardFront).append($frontImage);
+
+        return $($cardContainer).append($cardBack, $cardFront);
+    };
+
+    card.flip = function($object){
+        $object.addClass(flipBack)
+            .sibling("div")
+            .addClass(flipFront);
+    }
+};
