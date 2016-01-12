@@ -1,205 +1,96 @@
-/* Body*/
 body{
-    width: 98.75vw;
-
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-/* Header */
-.jumbotron{
-    padding: 1vh 0;
-    margin: 0;
-    width: 100vw;
-    border-bottom: 0.5vw #8d5319 solid;
-    background-color: #fffcf2;
-    font-family: Times Times New Roman, serif;
+/* Navigation Bar */
+.navigation{
+    padding: 2%;
+    padding-bottom: 0;
+    box-sizing: content-box;
 }
-header{
-    height: 13vh;
+.navigation > div > div{
+    display: inline-block;
 }
-/* Header Images: logo & title */
-.jumbotron img{
-    width: 50%;
-    margin-bottom: 1%;
-}
-/* Logo */
-.jumbotron div:first-child{
-    text-align: center;
-}
-/* Page Title */
-.jumbotron div:nth-of-type(2) {
-    text-align: center;
-    margin-top: 1%;
-}
-/* Header Links */
-.jumbotron div:last-of-type{
-    margin-top: 1%;
-    font-size: 1.25em;
-}
-
-/* end Header */
-
-/* Game Body */
-.row{
-    height: 42vw;
-    background-image: url("images/book-bg.png");
-    background-size: contain;
-    font-family: Times New Roman, serif;
-}
-
-/* Game Stats */
-#game-stats{
-    width: 18vw;
-    height: 20vw;
-    margin: 15% 0;
-    background-color: transparent;
-}
-#stats-book{
-    width: 20vw;
-    height: 25vw;
-    margin-left: -1%;
-    z-index: -1;
-}
-#game-stats div.panel-heading, #game-stats div.panel-body{
-    position: relative;
-    left: 30%;
-    bottom: 125%;
-    padding: 3% 2%;
-}
-.panel-heading h3{
-    font-weight: bold;
-    padding: 0;
-}
-#game-stats span{
-    background-color: transparent;
-    color: #000000;
-    font-size: 1em;
-    font-weight: 300;
-    padding: 0;
-
-}
-
-/* Reset Button */
-#btn-reset{
+#caseStats{
+    width: 33%;
     color: #ffffff;
-    background-color: #cf171f;
-    margin-top: 6%;
-    font-size: 1vw;
+    font-weight: bold;
 }
-/* end Game Stats */
+#title{
+    width: 33%;
+    text-align: center;
+    font-size: 0.25em;
+}
+.letterSquare{
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 1.25em;
+    background: #ffffff;
+    border: 1px solid #000000;
+}
+#caseFiles{
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+}
+#caseFiles .subtitle{
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-right: 2%;
+}
+.file{
+    width: 15%;
+    padding: 0.75em 5px;
+    font-size: 0.74em;
+    font-family: "Courier New", "courier", monospace;
+    white-space: nowrap;
+    text-align: center;
+    background: #ead295;
+    border-right: 1px solid rgba(96, 64, 32, 0.2);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 6px 0 25px -10px #604020 inset;
+}
 
-/* Card Field */
-#game-area{
-    margin-top: 3vh;
-    font-size: 0;
-    border: none;
-    background-color: transparent;
+.subtitle{
+    text-align: center;
+}
+
+/* Game Area */
+.background{
+    background: url("images/sherlock.png") #ead295 no-repeat;
+    background-size: 100%;
+    background-position: left;
+    height: 100%;
+    /*display: inline-block;*/
+}
+.background>div{
+    display: inline-block;
+}
+
+/* Clue Area */
+.clues{
+    flex: 1 100%;
+    width: 19%;
+    background: rgba(226, 217, 209, 0.7);
+    border: 1px solid rgb(226, 217, 209);
+    border-radius: 0 5px 5px 0;
+    height: 50%;
+}
+.clues>.subtitle{
+    font-weight: bold;
+}
+
+/* Card Area */
+#gameArea{
+    flex: 1 100%;
+    width: 80%;
 }
 /* Cards */
-#game-area .card{
-    height: 12vw;
-    width: 8vw;
-    border: 0.1vw solid #000000;
-    display: inline-block;
-    margin: 0.5vh 2%;
-    position: relative;
-    cursor: pointer;
+.back{
+    width: 12%;
 }
-.card .back, .card .front,
-.card .back img, .card .front img {
-    height: 100%;
+.back>img{
     width: 100%;
-    position: absolute;
 }
-/* Setting up card display */
-.card .back{
-    z-index: 8000;
-    background-color: #2759af;
-
-}
-/*.card{
-    transition-duration: 1s;
-}*/
-.wiggle:hover{
-    transform: rotateY(15deg);
-}
-.card .front{
-    background-color: #cf171f;
-}
-/* Class to be added with JS */
-.card_flipped{
-    visibility: hidden;
-}
-/* end Cards */
-
-/* Ladder Movement*/
-#ladder{
-    position: relative;
-    float: right;
-    width: 6vw;
-    height: 42vw;
-    z-index: 9000;
-}
-
-/* Winner screen */
-.win{
-    font-size: 5vw;
-    font-weight: bold;
-    font-family: Times New Roman, serif;
-}
-/* end Card Field */
-
-/* Modals */
-.modal{
-    z-index: 9999;
-}
-.modal-dialog{
-    width: 80vw;
-}
-.modal-title{
-    font-family: Times New Roman, serif;
-    text-align: center;
-}
-.modal-body .row{
-    height: 30vw;
-    background-image: none;
-    font-size: 120%;
-}
-/* About Game */
-#profile_pic{
-    float: right;
-    height: 10vw;
-    margin-right: 1vw;
-}
-/* end Modals */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

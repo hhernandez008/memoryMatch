@@ -81,7 +81,7 @@ function place_cards() {
                 class: "back"
             });
         var $back_img = $("<img>", {
-                src: "images/penumbra-cardback.png"
+                src: "images/cardBack.png"
             });
 
         $($card_front).append($front_img);
