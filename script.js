@@ -51,6 +51,10 @@ var card = function(cardArray, cardBackSrc){
         card.gameCardsCopy = card.gameCards.concat(card.gameCards);
     };
 
+    /**
+     * Select a random index in the card array, and return the string/image source
+     * @returns {*}
+     */
     card.faceSrc = function(){
         var index = (Math.floor(Math.random() * card.gameCardsDouble.length));
         var imageSrc = card.gameCardsDouble[index];
@@ -58,6 +62,10 @@ var card = function(cardArray, cardBackSrc){
         return imageSrc;
     };
 
+    /**
+     * Create card to be placed on dom with the given back image & a random front image form array
+     * @returns {*|jQuery|HTMLElement}
+     */
     card.cardCreator = function(){
         var $cardContainer = $("<div>",{
             class: "card"
@@ -77,10 +85,14 @@ var card = function(cardArray, cardBackSrc){
             src: card.faceSrc()
         });
         $($cardFront).append($frontImage);
-
-        return $($cardContainer).append($cardBack, $cardFront);
+        $($cardContainer).append($cardBack, $cardFront);
+        return $cardContainer;
     };
 
+    /**
+     * Add flipping class to cards
+     * @param $object
+     */
     card.flip = function($object){
         $object.addClass(flipBack)
             .sibling("div")

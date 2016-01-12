@@ -1,15 +1,16 @@
 body{
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    overflow: hidden;
     height: 100vh;
 }
 
 /* Navigation Bar */
 .navigation{
-    height: 11%;
+    margin: 0 -15px;
+    box-sizing: content-box;
+}
+.navigation>div:first-child{
     padding: 2%;
     padding-bottom: 0;
-    box-sizing: content-box;
 }
 .navigation > div > div{
     display: inline-block;
@@ -17,6 +18,7 @@ body{
 #caseStats{
     width: 33%;
     color: #ffffff;
+    font-size: 1.2em;
     font-weight: bold;
 }
 #title{
@@ -34,17 +36,17 @@ body{
 #caseFiles{
     width: 100%;
     margin-top: 1%;
-    display: flex;
 }
 #caseFiles .subtitle{
     font-size: 1.2em;
     color: #ffffff;
-    margin-right: 2%;
-    width: 13%;
+    margin-left: 2%;
+    margin-right:1%;
 }
 .file{
-    width: 15%;
+    width: 14.75%;
     padding: 0.75em 5px;
+    margin-right: -4px;
     font-size: 0.74em;
     font-family: "Courier New", "courier", monospace;
     white-space: nowrap;
@@ -64,7 +66,6 @@ body{
     background: url("images/sherlock.png") #ead295 no-repeat;
     background-size: 100%;
     background-position: left;
-    position: relative;
     height: 85.5%;
 }
 .background>div{
@@ -72,34 +73,172 @@ body{
 }
 /* Clue Area */
 #clueArea{
-    width: 19%;
+    width: 20%;
     height: 100%;
+    float: left;
     background: rgba(226, 217, 209, 0.7);
-    border-radius: 0 5px 5px 0;
     position: relative;
 }
 #clueArea>.subtitle{
     font-weight: bold;
 }
 .clue{
-    width: 50px;
-    height: 50px;
-    border: 2px solid gray;
+    width: 60px;
+    height: 60px;
+    /*border: 1px solid;*/
     border-radius: 100%;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+}
+.clueImage{
+    width: 100%;
+    height: 100%;
+}
+
+/* Clue Positions */
+/* Out of 9 (18 card game) */
+#c1of9{
+    left: 10%;
+    background: red;
+}
+#c3of9{
+    left: 10%;
+    top: 26%;
+    background: green;
+}
+#c5of9{
+    left: 10%;
+    top: 42%;
+    background: purple;
+}
+#c7of9{
+    left: 10%;
+    top: 58%;
+    background: whitesmoke;
+}
+#c9of9{
+    left: 10%;
+    top: 74%;
+    background: yellow;
+}
+
+#c2of9{
+    right: 10%;
+    top: 18%;
+    background: orange;
+}
+#c4of9{
+    right: 10%;
+    top: 34%;
+    background: blue;
+}
+#c6of9{
+    right: 10%;
+    top: 50%;
+    background: brown;
+}
+#c8of9{
+    right: 10%;
+    top: 66%;
+    background: black;
+}
+/* Out of 7 (14 card game) */
+#c1of7{
+    left: 10%;
+}
+#c3of7{
+    left: 10%;
+    top: 30%;
+    background: green;
+}
+#c5of7{
+    left: 10%;
+    top: 50%;
+    background: purple;
+}
+#c7of7{
+    left: 10%;
+    top: 70%;
+    background: whitesmoke;
+}
+
+/* Even Clues */
+#c2of7{
+    right: 10%;
+    top: 20%;
+    background: orange;
+}
+#c4of7{
+    right: 10%;
+    top: 40%;
+    background: blue;
+}
+#c6of7{
+    right: 10%;
+    top: 60%;
+    background: brown;
+}
+
+/* Out of 5(10 card game) */
+#c1of5{
+    left: 10%;
+}
+#c3of5{
+    left: 10%;
+    top: 40%;
+    background: green;
+}
+#c5of5{
+    left: 10%;
+    top: 70%;
+    background: purple;
+}
+
+/* Even Clues */
+#c2of5{
+    right: 10%;
+    top: 25%;
+    background: orange;
+}
+#c4of5{
+    right: 10%;
+    top: 55%;
+    background: blue;
+}
+/* Solution Positions */
+.solution{
+    bottom: 2%;
+    border-radius: 0;
+    overflow: visible;
+}
+.solution>p{
+    margin: 0;
+}
+.solved{
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    background: blue;
     position: relative;
-    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.clue:nth-of-type(odd){
-
+#s1{
+    right: 5%;
 }
-.clue:nth-of-type(even){
-
+#s2{
+    left: 50%;
+    transform: translateX(-50%);
 }
-
+#s3{
+    left: 5%;
+}
 /* Card Area */
 #gameArea{
     width: 80%;
     height: 100%;
+    float: right;
 }
 /* Cards */
 .back{

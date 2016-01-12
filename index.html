@@ -19,11 +19,11 @@
         }
     </script>-->
 </head>
-<body>
+<body class="container-fluid">
     <div class="navigation navbar-inverse">
         <div>
             <div id="caseStats">
-                Cases Closed: <span>&nbsp</span>
+                Cases Closed: <span class="caseClosed">x</span>
             </div>
             <div id="title">
                 <div class="letterSquare">S</div>
@@ -61,40 +61,36 @@
         </div>
 
     </div>
-    <div class="background">
+    <div class="background row">
         <div id="clueArea">
-            <h3 class="subtitle">
-                Clues Found
-            </h3>
-            <div class="clue">
-                First clue
+            <h4 class="subtitle">
+                Clues Found: <span class="cluesFound">x</span>/<span class="cluesRemain">y</span>
+            </h4>
+            <h4 class="subtitle">
+                Accuracy: <span class="clueStats">x</span>%
+            </h4>
+            <div class="clue" id="c1of5">
+                <img src="images/cardBack.png" class="clueImage">
             </div>
-            <div class="clue">
-                Second clue
+            <div class="clue" id="c2of5"></div>
+            <div class="clue" id="c3of5"></div>
+            <div class="clue" id="c4of5"></div>
+            <div class="clue" id="c5of5"></div>
+            <!--<div class="clue" id="c6of7"></div>-->
+            <!--<div class="clue" id="c7of7"></div>-->
+            <!--<div class="clue" id="c8of9"></div>-->
+            <!--<div class="clue" id="c9of9"></div>-->
+            <div class="clue solution" id="s3">
+                <div class="solved"></div>
+                <p>Part 1</p>
             </div>
-            <div class="clue">
-                Third clue
+            <div class="clue solution" id="s2">
+                <div class="solved"></div>
+                <p>Part 2</p>
             </div>
-            <div class="clue">
-                Fourth clue
-            </div>
-            <div class="clue">
-                Fifth clue
-            </div>
-            <div class="clue">
-                Sixth clue
-            </div>
-            <div class="clue">
-                Seventh clue
-            </div>
-            <div class="clue">
-                Eighth clue
-            </div>
-            <div class="clue">
-                Ninth clue
-            </div>
-            <div class="clue solution">
-                Mystery Solved
+            <div class="clue solution" id="s1">
+                <div class="solved"></div>
+                <p>Mystery</p>
             </div>
         </div>
         <div id="gameArea">
