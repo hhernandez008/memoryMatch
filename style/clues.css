@@ -28,9 +28,9 @@
 }
 /* Shoe Prints */
 .shoePrint{
-    height: 3%;
+    height: 4%;
     background: url("../images/shoePrint.png") transparent;
-    background-size: auto 100%;
+    background-size: 100%;
     background-repeat: repeat-x;
     position: absolute;
 }
@@ -40,22 +40,18 @@
 /* Left Clues */
 #c1of11{
     left: 10%;
-    background: red;
 }
 #c4of11{
     left: 10%;
     top: 30%;
-    background: blue;
 }
 #c7of11{
     left: 10%;
     top: 50%;
-    background: whitesmoke;
 }
 #c10of11{
     left: 10%;
     top: 70%;
-    background: indigo;
 }
 
 /* Middle Clues */
@@ -63,40 +59,33 @@
     left: 50%;
     transform: translateX(-50%);
     top: 20%;
-    background: green;
 }
 #c6of11{
     left: 50%;
     transform: translateX(-50%);
     top: 40%;
-    background: brown;
 }
 #c9of11{
     left: 50%;
     transform: translateX(-50%);
     top: 60%;
-    background: yellow;
 }
 
 /* Right Clues */
 #c2of11{
     right: 10%;
-    background: orange;
 }
 #c5of11{
     right: 10%;
     top: 30%;
-    background: purple;
 }
 #c8of11{
     right: 10%;
     top: 50%;
-    background: black;
 }
 #c11of11{
     right: 10%;
     top: 70%;
-    background: indianred;
 }
 
 /* Shoe Prints */
@@ -138,48 +127,76 @@
 /* Out of 9 (18 card game) */
 #c1of9{
     left: 10%;
-    background: red;
 }
 #c3of9{
     left: 10%;
     top: 26%;
-    background: green;
 }
 #c5of9{
     left: 10%;
     top: 42%;
-    background: purple;
 }
 #c7of9{
     left: 10%;
     top: 58%;
-    background: whitesmoke;
 }
 #c9of9{
     left: 10%;
     top: 74%;
-    background: yellow;
 }
 
 #c2of9{
     right: 10%;
     top: 18%;
-    background: orange;
 }
 #c4of9{
     right: 10%;
     top: 34%;
-    background: blue;
 }
 #c6of9{
     right: 10%;
     top: 50%;
-    background: brown;
 }
 #c8of9{
     right: 10%;
     top: 66%;
-    background: black;
+}
+/* Shoe Prints */
+/* Backslashes */
+.nine.backSlash{
+    transform: rotate(20deg);
+    width: 50%;
+    left: 23%;
+}
+.nine#c1to2{
+    top: 17%;
+}
+.nine#c3to4{
+    top: 32%;
+}
+.nine#c5to6{
+    top: 49%;
+}
+.nine#c7to8{
+    top: 64%;
+}
+/* Forward Slashes */
+.nine.forwardSlash{
+    transform: rotate(155deg);
+    width: 50%;
+    left: 23%;
+}
+.nine#c2to3{
+    top: 25%;
+}
+.nine#c4to5{
+    top: 42%;
+}
+.nine#c6to7{
+    top: 57%;
+}
+.nine#c8to9{
+    top: 73%;
 }
 
 /* Out of 7 (14 card game) */
@@ -212,6 +229,37 @@
     right: 10%;
     top: 60%;
 }
+/* Shoe Prints */
+/* Backslash */
+.seven.backSlash{
+    transform: rotate(25deg);
+    width: 50%;
+    left: 23%;
+}
+.seven#c1to2{
+    top: 17%;
+}
+.seven#c3to4{
+    top: 37%;
+}
+.seven#c5to6{
+    top: 57%;
+}
+/* Forward Slash */
+.seven.forwardSlash{
+    transform: rotate(148deg);
+    width: 50%;
+    left: 23%;
+}
+.seven#c2to3{
+    top: 28%;
+}
+.seven#c4to5{
+    top: 48%;
+}
+.seven#c6to7{
+    top: 68%;
+}
 
 /* Out of 5(10 card game) */
 /* Odd Clues */
@@ -235,7 +283,31 @@
     right: 10%;
     top: 55%;
 }
-
+/* Shoe Prints */
+/* Backslash */
+.five.backSlash{
+    transform: rotate(40deg);
+    width: 50%;
+    left: 26%;
+}
+.five#c1to2{
+    top: 21%;
+}
+.five#c3to4{
+    top: 51%;
+}
+/* Forward Slash */
+.five.forwardSlash{
+    transform: rotate(134deg);
+    width: 50%;
+    left: 25%;
+}
+.five#c2to3{
+    top: 36%;
+}
+.five#c4to5{
+    top: 66%;
+}
 
 /* Solution Positions */
 .solution{
@@ -245,16 +317,25 @@
 }
 .solution>p{
     margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
 }
-.solved{
+.solutionGraphic{
     width: 80%;
     height: 80%;
+    border: 1px solid #1a1a1a;
     border-radius: 100%;
-    background: blue;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
+.solved{
+    background: url("../images/closedStamp.png");
+    background-size: 150%;
+    background-position: center;
+    border-color: transparent;
+}
+/* One part case (final case) */
 #s1{
     right: 5%;
 }

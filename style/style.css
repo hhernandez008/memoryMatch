@@ -72,16 +72,4 @@ body{
     display: inline-block;
 }
 
-/* Card Area */
-#gameArea{
-    width: 80%;
-    height: 100%;
-    float: right;
-}
-/* Cards */
-.back{
-    width: 12%;
-}
-.back>img{
-    width: 100%;
-}
+
