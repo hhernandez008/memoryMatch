@@ -26,7 +26,14 @@
     width: 100%;
     height: 100%;
 }
-
+/* Shoe Prints */
+.shoePrint{
+    height: 3%;
+    background: url("../images/shoePrint.png") transparent;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    position: absolute;
+}
 /* Clue Positions */
 
 /* Out of 11 (18 card game) */
@@ -92,6 +99,41 @@
     background: indianred;
 }
 
+/* Shoe Prints */
+.eleven.horizonLine{
+    left: 20%;
+    width: 50%;
+}
+.eleven.forwardSlash{
+    left: 15%;
+    width: 72%;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.eleven#c1to2{
+    top: 15%;
+}
+.eleven#c2to4{
+    top: 22%;
+}
+.eleven#c4to5{
+    top: 33%;
+}
+.eleven#c5to7{
+    top: 42%;
+}
+.eleven#c7to8{
+    top: 53%;
+}
+.eleven#c8to10{
+    top: 63%;
+}
+.eleven#c10to11{
+    top: 73%;
+}
 
 /* Out of 9 (18 card game) */
 #c1of9{
