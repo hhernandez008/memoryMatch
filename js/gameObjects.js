@@ -34,7 +34,7 @@ var Statistics = function(){
         stats.cardsClicked = 0;
         stats.matchesMade = 0;
     };
-};
+}; // end Statistics object
 /**
  *
  * @param parent
@@ -70,30 +70,24 @@ var Card = function(parent){
             class: "card"
         }).append($cardBack, $cardFace);
     };
-
-    /**
-     * Add flipping class to cards
-     * @param $object
-     */
-    card.flipUp = function($object){
-        $object.addClass(flipBack)
-            .sibling("div")
-            .addClass(flipFace);
-    }
-};
+}; //end Card object
 
 var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches){
     var game = this;
-    game.gameCardsDouble = [];
-    game.remainingMatches = totalMatches;
+    var gameCardsDouble = [];
+    var remainingMatches = totalMatches;
+    var cardOne = "";
+    var cardTwo = "";
     /**
      * Create a list of the correct number of cards
      */
     game.cardList = function(){
+        //ensure the game card array is empty
+        gameCardsDouble = [];
         for(var i = totalMatches; i > 0; i--){
             var index = (Math.floor(Math.random() * cardFaceArray.length));
             //create array with two each of the card images
-            game.gameCardsDouble.push(cardFaceArray[index], cardFaceArray[index]);
+            gameCardsDouble.push(cardFaceArray[index], cardFaceArray[index]);
             cardFaceArray.splice(index, 1);
         }
     };
@@ -102,45 +96,130 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
      * @returns {*}
      */
     game.faceSrc = function(){
-        var index = (Math.floor(Math.random() * game.gameCardsDouble.length));
-        var imageSrc = game.gameCardsDouble[index];
-        game.gameCardsDouble.splice(index, 1);
+        var index = (Math.floor(Math.random() * gameCardsDouble.length));
+        var imageSrc = gameCardsDouble[index];
+        gameCardsDouble.splice(index, 1);
         return imageSrc;
     };
 
     game.createGameBoard = function(){
         //Create the list of the card faces to use
         game.cardList();
-
-        //Make the totalMatches into a string for class assignments for the cards and game container
-        var matchesString = "";
-        switch (totalMatches){
-            case 5:
-                matchesString = "five";
-                break;
-            case 7:
-                matchesString = "seven";
-                break;
-            case 9:
-                matchesString = "nine";
-                break;
-            case 11:
-                matchesString = "eleven";
-                break;
-            default:
-                console.log(totalMatches, "is not a valid game size");
-        }
-
-        //Assign the matchesString as a class to the container
-        $(gameContainer).addClass(matchesString);
-
         //Create & append all of the cards to the game board
         for(var i = (totalMatches * 2); i > 0; i--){
             var card = new Card(game);
             var cardContainer = card.cardCreator(cardBack);
-            cardContainer.addClass(matchesString);
             $(gameContainer).prepend(cardContainer);
         }
+        //Add click handler to cards
+        game.cardClickHandler();
+    };
+    /**
+     * Assign click handler to cards
+     */
+    game.cardClickHandler = function(){
+        $(gameContainer).on("click", ".card", game.cardClicked);
+    };
+    /**
+     * Determine if the card clicked is the second or not.
+     * Return true if it is the second card.
+     * @returns {boolean}
+     */
+    game.secondCard = function(){
+        //returns true cardOne is already turned over
+        return cardOne !== "";
+    };
+    /**
+     * Add faceUp class to the passed in card
+     * @param card
+     */
+    game.turnCardFaceUp = function(card){
+        $(card).addClass("faceUp");
+    };
+    /**
+     * Flip card back to start position
+     */
+    game.turnCardBack = function(){
+        $(cardOne).addClass("flipBack");
+        $(cardTwo).addClass("flipBack");
+        setTimeout(function(){
+            $(cardOne).addClass("showBack");
+            $(cardTwo).addClass("showBack");
+            setTimeout(function(){
+                $(cardOne).removeClass("faceUp flipBack showBack");
+                $(cardTwo).removeClass("faceUp flipBack showBack");
+                // wait 0.1 seconds before resetting cardOne & cardTwo, & re-adding click handler
+                setTimeout(function(){
+                    game.resetCardsOneTwo();
+                    game.cardClickHandler();
+                }, 100);
+            }, 200);
+        }, 300);
+
+    };
+    /**
+     * Save the card clicked. If the second card check for a match.
+     * @param card
+     */
+    game.cardClicked = function(card){
+        card = card.currentTarget;
+        //ignore card if already flipped over
+        if(!$(card).hasClass("faceUp")) {
+            game.turnCardFaceUp(card);
+            //First card
+            if (!game.secondCard()) {
+                cardOne = $(card);
+                return;
+            }
+            //Second card
+            $(gameContainer).off("click", ".card");
+            cardTwo = $(card);
+            // check if cardOne and cardTwo match
+            game.cardsMatch();
+        }
+    };
+    /**
+     * Check if the two cards turned over are a match.
+     */
+    game.cardsMatch = function(){
+        var cardOneSrc = $(cardOne).find(".face>img").attr("src");
+        var cardTwoSrc = $(cardTwo).find(".face>img").attr("src");
+        //Check if the cards do NOT match
+        if(cardOneSrc !== cardTwoSrc){
+            // if cards do not match wait 1.5secs before returning to start position
+            setTimeout(function(){
+                game.turnCardBack();
+            }, 1500);
+            return;
+        }
+        //decrement remainingMatches, if == 0 declare win
+        if(--remainingMatches == 0){
+            //PLAYER WINS
+            //TODO: Win screen
+            console.log("Win", remainingMatches);
+        }
+        game.resetCardsOneTwo();
+        //Re-assign click handler
+        game.cardClickHandler();
     };
 
-};
+    /**
+     * Reset the value of the cardOne and cardTwo.
+     */
+    game.resetCardsOneTwo = function(){
+        cardOne = "";
+        cardTwo = "";
+    };
+
+    /**
+     * Reset the game board.
+     */
+    game.resetGame = function(){
+        $(gameContainer).text("");
+        remainingMatches = totalMatches;
+        cardOne = "";
+        cardTwo = "";
+        createGameBoard();
+    };
+
+}; //end MatchingGame object

@@ -5,38 +5,79 @@
     float: right;
     text-align: center;
 }
-#gameArea.five{
-    margin: 5% 0;
-}
+
 /* Card Container */
 .card{
+    margin: 2%;
     display: inline-block;
     position: relative;
     cursor: pointer;
+    transition: 1s;
 }
+
 /* Card Image Container & Images */
 .back, .face{
     width: 100%;
-    height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    text-align: center;
 }
 .back{
-    z-index: 500;
+    z-index: 10;
+    transition: 400ms;
+    transition-property: all;
 }
-.back>img{
+.face{
+    transform:rotateY(180deg);
+}
+.back>img, .face>img {
     width: 100%;
+    backface-visibility: hidden;
 }
-.face>img{
-    width: 100%;
-}
+/* Adjust for different game sizes */
 /* 5 Matches (10 card game) */
+#gameArea.five{
+    margin: 5% 0;
+}
 .card.five{
     width: 15%;
     height: 40%;
-    margin: 2%;
+}
+/* 7 Matches (14 card game) */
+.card.seven{
+    width: 13%;
+    height: 30%;
+    margin: 2% 1%;
+}
+/* 9 Matches (18 card game) */
+.card.nine{
+    width: 11%;
+    height: 30%;
+    margin: 2% 1%;
+}
+/* 11 Matches (22 card game) */
+.card.eleven{
+    width: 9%;
+    height: 30%;
+    margin: 2% 1%;
 }
 
-.card.five>.back{
 
+/* Card Animations */
+/* Flip card to show face */
+.faceUp{
+    transform: rotateY(180deg);
 }
-
+.faceUp>.back{
+    z-index: 0;
+}
+/* Flip card to show back */
+.flipBack{
+    transform: rotateY(0deg);
+}
+/* Reshow card back */
+.showBack .back{
+    z-index: 10;
+}
