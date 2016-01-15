@@ -9,30 +9,39 @@ var Statistics = function(){
     stats.gamesPlayed = 0;
     stats.gamesWon = 0;
     stats.cardsClicked = 0;
+    stats.parisClicked = 0;
     stats.matchesMade = 0;
+    stats.totalMatches = null;
 
     stats.matchAttempts = function(){
-        return (stats.cardsClicked/2);
+        return stats.parisClicked;
     };
 
-    stats.matchAccuracy = function(numberMatches){
-        return (stats.cardsClicked/2)/numberMatches;
+    stats.matchAccuracyPercent = function(){
+        var decimal = stats.matchesMade/stats.parisClicked;
+        if(isNaN(decimal)){
+            return "0%";
+        }
+        return Math.round((decimal * 100)) + "%";
     };
 
-    stats.matchPercentage = function(numberMatches){
-        return stats.matchesMade/numberMatches;
+    stats.percentMatchesMade = function(){
+        var decimal = stats.matchesMade/stats.totalMatches;
+        return Math.round((decimal * 100)) + "%";
     };
 
     stats.newGame = function(){
         stats.cardsClicked = 0;
         stats.matchesMade = 0;
+        stats.totalMatches = null;
     };
 
-    stats.resetStats = function(){
+    stats.resetAllStats = function(){
         stats.gamesPlayed = 0;
         stats.gamesWon = 0;
         stats.cardsClicked = 0;
         stats.matchesMade = 0;
+        stats.totalMatches = null;
     };
 }; // end Statistics object
 /**
@@ -72,23 +81,46 @@ var Card = function(parent){
     };
 }; //end Card object
 
-var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches){
+var MatchingGame = function(gameContainer, cardObject){
     var game = this;
+    var container = gameContainer;
+    var cardFaces = cardObject.faces;
+    var cardBack = cardObject.back;
     var gameCardsDouble = [];
-    var remainingMatches = totalMatches;
+    var remainingMatches = null;
     var cardOne = "";
     var cardTwo = "";
+    game.stats = new Statistics();
+    /**
+     * Create cards and set game board.
+     * @param totalMatches
+     */
+    game.createGameBoard = function(totalMatches){
+        remainingMatches = totalMatches;
+        game.stats.totalMatches = totalMatches;
+        game.stats.gamesPlayed++;
+        //Create the list of the card faces to use
+        game.cardList(totalMatches);
+        //Create & append all of the cards to the game board
+        for(var i = (totalMatches * 2); i > 0; i--){
+            var card = new Card(game);
+            var cardContainer = card.cardCreator(cardBack);
+            $(container).prepend(cardContainer);
+        }
+        //Add click handler to cards
+        game.cardClickHandler();
+    };
     /**
      * Create a list of the correct number of cards
      */
-    game.cardList = function(){
+    game.cardList = function(totalMatches){
         //ensure the game card array is empty
         gameCardsDouble = [];
         for(var i = totalMatches; i > 0; i--){
-            var index = (Math.floor(Math.random() * cardFaceArray.length));
+            var index = (Math.floor(Math.random() * cardFaces.length));
             //create array with two each of the card images
-            gameCardsDouble.push(cardFaceArray[index], cardFaceArray[index]);
-            cardFaceArray.splice(index, 1);
+            gameCardsDouble.push(cardFaces[index], cardFaces[index]);
+            cardFaces.splice(index, 1);
         }
     };
     /**
@@ -101,24 +133,11 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
         gameCardsDouble.splice(index, 1);
         return imageSrc;
     };
-
-    game.createGameBoard = function(){
-        //Create the list of the card faces to use
-        game.cardList();
-        //Create & append all of the cards to the game board
-        for(var i = (totalMatches * 2); i > 0; i--){
-            var card = new Card(game);
-            var cardContainer = card.cardCreator(cardBack);
-            $(gameContainer).prepend(cardContainer);
-        }
-        //Add click handler to cards
-        game.cardClickHandler();
-    };
     /**
      * Assign click handler to cards
      */
     game.cardClickHandler = function(){
-        $(gameContainer).on("click", ".card", game.cardClicked);
+        $(container).on("click", ".card", game.cardClicked);
     };
     /**
      * Determine if the card clicked is the second or not.
@@ -165,6 +184,7 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
         card = card.currentTarget;
         //ignore card if already flipped over
         if(!$(card).hasClass("faceUp")) {
+            game.stats.cardsClicked++;
             game.turnCardFaceUp(card);
             //First card
             if (!game.secondCard()) {
@@ -172,8 +192,9 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
                 return;
             }
             //Second card
-            $(gameContainer).off("click", ".card");
+            $(container).off("click", ".card");
             cardTwo = $(card);
+            game.stats.parisClicked++;
             // check if cardOne and cardTwo match
             game.cardsMatch();
         }
@@ -192,8 +213,10 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
             }, 1500);
             return;
         }
+        game.stats.matchesMade++;
         //decrement remainingMatches, if == 0 declare win
         if(--remainingMatches == 0){
+            game.stats.gamesPlayed++;
             //PLAYER WINS
             //TODO: Win screen
             console.log("Win", remainingMatches);
@@ -214,12 +237,15 @@ var MatchingGame = function(gameContainer, cardFaceArray, cardBack, totalMatches
     /**
      * Reset the game board.
      */
-    game.resetGame = function(){
-        $(gameContainer).text("");
-        remainingMatches = totalMatches;
+    game.resetGame = function(callback){
+        $(container).text("");
+        gameCardsDouble = [];
+        remainingMatches = null;
         cardOne = "";
         cardTwo = "";
-        createGameBoard();
+        game.stats.newGame();
+        //User callback for game reset
+        callback.call();
     };
 
 }; //end MatchingGame object

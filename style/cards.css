@@ -35,11 +35,13 @@
 .back>img, .face>img {
     width: 100%;
     backface-visibility: hidden;
+    background: black;
 }
 /* Adjust for different game sizes */
 /* 5 Matches (10 card game) */
 #gameArea.five{
-    margin: 5% 0;
+    margin: 2% 0;
+    height: 90%;
 }
 .card.five{
     width: 15%;
