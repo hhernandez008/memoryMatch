@@ -17,10 +17,11 @@
 
 /* Card Image Container & Images */
 .back, .face{
-    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     backface-visibility: hidden;
     text-align: center;
 }
@@ -30,13 +31,14 @@
     transition-property: all;
 }
 .face{
-    transform:rotateY(180deg);
+    transform:translateX(-50%) rotateY(180deg);
 }
 .back>img, .face>img {
-    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
     background: black;
 }
+
 /* Adjust for different game sizes */
 /* 5 Matches (10 card game) */
 #gameArea.five{
@@ -48,16 +50,29 @@
     height: 40%;
 }
 /* 7 Matches (14 card game) */
-.card.seven{
-    width: 13%;
-    height: 30%;
-    margin: 2% 1%;
+#gameArea.seven{
+    padding-top: 1%;
 }
+.card.seven{
+    width: 15%;
+    height: 28%;
+    margin: 1% 2%;
+}
+.card.seven:nth-child(6){
+    margin-left: 5%;
+}
+.card.seven:nth-child(9){
+    margin-right: 5%;
+}
+
 /* 9 Matches (18 card game) */
+#gameArea.nine{
+    padding-top: 1%;
+}
 .card.nine{
-    width: 11%;
-    height: 30%;
-    margin: 2% 1%;
+    width: 13%;
+    height: 28%;
+    margin: 1%;
 }
 /* 11 Matches (22 card game) */
 .card.eleven{

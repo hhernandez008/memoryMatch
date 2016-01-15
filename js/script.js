@@ -31,7 +31,7 @@ $(document).ready(function(){
     $accuracyDisplay = $("#clueAccuracy");
 
     game = new MatchingGame("#gameArea", cards);
-    setGameBoard(7);
+    setGameBoard(9);
 
     $(".card").click(function(){
         setTimeout(function(){
