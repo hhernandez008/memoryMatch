@@ -51,6 +51,7 @@ var Statistics = function(){
 var Card = function(parent){
     var card = this;
     card.parent = parent;
+    card.face = null;
     /**
      * Create card to be placed on dom with the given back image & a random front image form array
      * @returns {*|jQuery|HTMLElement}
@@ -66,11 +67,12 @@ var Card = function(parent){
         $($cardBack).append($backImage);
 
         // Make card face
+        card.face = card.parent.faceSrc();
         var $cardFace = $("<div>", {
             class: "face"
         });
         var $faceImage = $("<img>", {
-            src: card.parent.faceSrc()
+            src: card.face
         });
         $($cardFace).append($faceImage);
 
@@ -136,7 +138,7 @@ var MatchingGame = function(gameContainer, cardObject, winCallback){
     /**
      * Assign click handler to cards
      */
-    game.cardClickHandler = function(){
+    game.cardClickHandler = function(card){
         $(container).on("click", ".card", game.cardClicked);
     };
     /**
@@ -175,6 +177,7 @@ var MatchingGame = function(gameContainer, cardObject, winCallback){
             }, 200);
         }, 300);
     };
+
     /**
      * Save the card clicked. If the second card check for a match.
      * @param card

@@ -30,8 +30,8 @@ $(document).ready(function(){
     $totalMatchesDisplay = $("#cluesRemain");
     $accuracyDisplay = $("#clueAccuracy");
 
-    game = new MatchingGame("#gameArea", cards);
-    setGameBoard(11);
+    game = new MatchingGame("#gameArea", cards, winCallback);
+    setGameBoard(5);
 
     $(".card").click(function(){
         setTimeout(function(){
@@ -78,3 +78,9 @@ function additionalClasses(className){
     $("#gameArea").addClass(className);
     $(".card").addClass(className);
 }
+
+//TODO: winning function
+function winCallback(){
+
+}
+
