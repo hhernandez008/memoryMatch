@@ -81,7 +81,7 @@ var Card = function(parent){
     };
 }; //end Card object
 
-var MatchingGame = function(gameContainer, cardObject){
+var MatchingGame = function(gameContainer, cardObject, winCallback){
     var game = this;
     var container = gameContainer;
     var cardFaces = cardObject.faces;
@@ -174,7 +174,6 @@ var MatchingGame = function(gameContainer, cardObject){
                 }, 100);
             }, 200);
         }, 300);
-
     };
     /**
      * Save the card clicked. If the second card check for a match.
@@ -220,6 +219,7 @@ var MatchingGame = function(gameContainer, cardObject){
             //PLAYER WINS
             //TODO: Win screen
             console.log("Win", remainingMatches);
+            winCallback.call();
         }
         game.resetCardsOneTwo();
         //Re-assign click handler
