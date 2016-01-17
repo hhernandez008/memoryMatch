@@ -29,7 +29,7 @@
 /* Shoe Prints */
 .shoePrint{
     height: 4%;
-    background: url("../images/shoePrint.png") transparent;
+    background: url("../images/clues/shoePrint.png") transparent;
     background-size: 100%;
     background-repeat: repeat-x;
     position: absolute;
@@ -311,38 +311,22 @@
 
 /* Solution Positions */
 .solution{
-    bottom: 4%;
-    border-radius: 0;
-    overflow: visible;
-}
-.solution>p{
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-.solutionGraphic{
-    width: 80%;
-    height: 80%;
+    width: 70px;
+    height: 70px;
     border: 1px solid #1a1a1a;
     border-radius: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;
+    right: 5%;
+    bottom: 6%;
 }
 .solved{
-    background: url("../images/closedStamp.png");
+    background: url("../images/clues/closedStamp.png");
     background-size: 150%;
     background-position: center;
     border-color: transparent;
 }
 /* One part case (final case) */
-#s1{
-    right: 5%;
-}
-#s2{
+.solution.eleven{
     left: 50%;
     transform: translateX(-50%);
-}
-#s3{
-    left: 5%;
 }
