@@ -31,7 +31,7 @@
     height: 4%;
     background: url("../images/clues/shoePrint.png") transparent;
     background-size: 100%;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     position: absolute;
 }
 /* Clue Positions */
@@ -94,8 +94,10 @@
     width: 50%;
 }
 .eleven.forwardSlash{
-    left: 15%;
-    width: 72%;
+    left: 22%;
+    width: 30%;
+    height: 2.5%;
+    background-size: auto 100%;
     -webkit-transform: rotate(135deg);
     -moz-transform: rotate(135deg);
     -ms-transform: rotate(135deg);
@@ -105,20 +107,32 @@
 .eleven#c1to2{
     top: 15%;
 }
-.eleven#c2to4{
+.eleven#c2to3{
     top: 22%;
+    left: 45%;
+}
+.eleven#c3to4{
+    top: 28%;
 }
 .eleven#c4to5{
     top: 33%;
 }
-.eleven#c5to7{
+.eleven#c5to6{
     top: 42%;
+    left: 45%;
+}
+.eleven#c6to7{
+    top: 48%;
 }
 .eleven#c7to8{
     top: 53%;
 }
-.eleven#c8to10{
+.eleven#c8to9{
     top: 63%;
+    left: 45%;
+}
+.eleven#c9to10{
+    top: 68%;
 }
 .eleven#c10to11{
     top: 73%;
