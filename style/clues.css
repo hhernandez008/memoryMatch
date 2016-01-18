@@ -1,13 +1,20 @@
 /* Clue Area */
-#clueArea{
+.sideBar{
     width: 20%;
     height: 100%;
     float: left;
     background: rgba(226, 217, 209, 0.7);
     position: relative;
 }
-#clueArea>.subtitle{
+.sideBar>.subtitle{
     font-weight: bold;
+}
+.sideBar>hr{
+    margin: 10px;
+}
+#clueArea{
+    height: 85%;
+    position: relative;
 }
 .clue{
     width: 60px;
@@ -43,27 +50,27 @@
 }
 #c4of11{
     left: 10%;
-    top: 30%;
+    top: 24%;
 }
 #c7of11{
     left: 10%;
-    top: 50%;
+    top: 48%;
 }
 #c10of11{
     left: 10%;
-    top: 70%;
+    top: 72%;
 }
 
 /* Middle Clues */
 #c3of11{
     left: 50%;
     transform: translateX(-50%);
-    top: 20%;
+    top: 12%;
 }
 #c6of11{
     left: 50%;
     transform: translateX(-50%);
-    top: 40%;
+    top: 36%;
 }
 #c9of11{
     left: 50%;
@@ -77,15 +84,15 @@
 }
 #c5of11{
     right: 10%;
-    top: 30%;
+    top: 24%;
 }
 #c8of11{
     right: 10%;
-    top: 50%;
+    top: 48%;
 }
 #c11of11{
     right: 10%;
-    top: 70%;
+    top: 72%;
 }
 
 /* Shoe Prints */
@@ -106,37 +113,37 @@
     transform: rotate(135deg);
 }
 .eleven#shoe1to2{
-    top: 15%;
+    top: 5%;
 }
 .eleven#shoe2to3{
-    top: 22%;
+    top: 13%;
     left: 45%;
 }
 .eleven#shoe3to4{
-    top: 28%;
+    top: 23%;
 }
 .eleven#shoe4to5{
-    top: 33%;
+    top: 29%;
 }
 .eleven#shoe5to6{
-    top: 42%;
+    top: 37%;
     left: 45%;
 }
 .eleven#shoe6to7{
-    top: 48%;
+    top: 46%;
 }
 .eleven#shoe7to8{
     top: 53%;
 }
 .eleven#shoe8to9{
-    top: 63%;
+    top: 61%;
     left: 45%;
 }
 .eleven#shoe9to10{
-    top: 68%;
+    top: 70%;
 }
 .eleven#shoe10to11{
-    top: 73%;
+    top: 77%;
 }
 
 /* Out of 9 (18 card game) */
@@ -145,100 +152,101 @@
 }
 #c3of9{
     left: 10%;
-    top: 26%;
+    top: 18%;
 }
 #c5of9{
     left: 10%;
-    top: 42%;
+    top: 36%;
 }
 #c7of9{
     left: 10%;
-    top: 58%;
+    top: 54%;
 }
 #c9of9{
     left: 10%;
-    top: 74%;
+    top: 72%;
 }
-
+/* Even Clues */
 #c2of9{
     right: 10%;
-    top: 18%;
+    top: 9%;
 }
 #c4of9{
     right: 10%;
-    top: 34%;
+    top: 27%;
 }
 #c6of9{
     right: 10%;
-    top: 50%;
+    top: 45%;
 }
 #c8of9{
     right: 10%;
-    top: 66%;
+    top: 63%;
 }
 /* Shoe Prints */
 /* Backslashes */
 .nine#shoe1to2, .nine#shoe3to4, .nine#shoe5to6, .nine#shoe7to8{
-    transform: rotate(20deg);
+    transform: rotate(15deg);
     width: 50%;
     left: 23%;
 }
 .nine#shoe1to2{
-    top: 17%;
+    top: 9%;
 }
 .nine#shoe3to4{
-    top: 32%;
+    top: 27%;
 }
 .nine#shoe5to6{
-    top: 49%;
+    top: 45%;
 }
 .nine#shoe7to8{
-    top: 64%;
+    top: 63%;
 }
 /* Forward Slashes */
 .nine#shoe2to3, .nine#shoe4to5, .nine#shoe6to7, .nine#shoe8to9{
-    transform: rotate(155deg);
+    transform: rotate(160deg);
     width: 50%;
     left: 23%;
 }
 .nine#shoe2to3{
-    top: 25%;
+    top: 18%;
 }
 .nine#shoe4to5{
-    top: 42%;
+    top: 36%;
 }
 .nine#shoe6to7{
-    top: 57%;
+    top: 54%;
 }
 .nine#shoe8to9{
-    top: 73%;
+    top: 72%;
 }
 
 /* Out of 7 (14 card game) */
 /* Odd Clues */
 #c1of7{
     left: 10%;
+    top: 2%;
 }
 #c3of7{
     left: 10%;
-    top: 30%;
+    top: 24%;
 }
 #c5of7{
     left: 10%;
-    top: 50%;
+    top: 48%;
 }
 #c7of7{
     left: 10%;
-    top: 70%;
+    top: 72%;
 }
 /* Even Clues */
 #c2of7{
     right: 10%;
-    top: 20%;
+    top: 12%;
 }
 #c4of7{
     right: 10%;
-    top: 40%;
+    top: 36%;
 }
 #c6of7{
     right: 10%;
@@ -247,105 +255,107 @@
 /* Shoe Prints */
 /* Backslash */
 .seven#shoe1to2, .seven#shoe3to4, .seven#shoe5to6{
-    transform: rotate(25deg);
+    transform: rotate(20deg);
     width: 50%;
     left: 23%;
 }
 .seven#shoe1to2{
-    top: 17%;
+    top: 10%;
 }
 .seven#shoe3to4{
-    top: 37%;
+    top: 34%;
 }
 .seven#shoe5to6{
-    top: 57%;
+    top: 58%;
 }
 /* Forward Slash */
 .seven#shoe2to3, .seven#shoe4to5, .seven#shoe6to7{
-    transform: rotate(148deg);
+    transform: rotate(155deg);
     width: 50%;
     left: 23%;
 }
 .seven#shoe2to3{
-    top: 28%;
+    top: 22%;
 }
 .seven#shoe4to5{
-    top: 48%;
+    top: 46%;
 }
 .seven#shoe6to7{
-    top: 68%;
+    top: 70%;
 }
 
 /* Out of 5(10 card game) */
 /* Odd Clues */
 #c1of5{
     left: 10%;
+    top: 5%;
 }
 #c3of5{
     left: 10%;
-    top: 40%;
+    top: 35%;
 }
 #c5of5{
     left: 10%;
-    top: 70%;
+    top: 65%;
 }
 /* Even Clues */
 #c2of5{
     right: 10%;
-    top: 25%;
+    top: 20%;
 }
 #c4of5{
     right: 10%;
-    top: 55%;
+    top: 50%;
 }
 /* Shoe Prints */
 /* Backslash */
 .five#shoe1to2, .five#shoe3to4{
-    transform: rotate(40deg);
-    width: 50%;
-    left: 26%;
+    transform: rotate(30deg);
+    width: 55%;
+    left: 23%;
 }
 .five#shoe1to2{
-    top: 21%;
+    top: 17%;
 }
 .five#shoe3to4{
-    top: 51%;
+    top: 47%;
 }
 /* Forward Slash */
 .five#shoe2to3, .five#shoe4to5{
-    transform: rotate(134deg);
-    width: 50%;
-    left: 25%;
+    transform: rotate(150deg);
+    width: 55%;
+    left: 23%;
 }
 .five#shoe2to3{
-    top: 36%;
+    top: 31%;
 }
 .five#shoe4to5{
-    top: 66%;
+    top: 61%;
 }
 
 /* Solution */
 .solution{
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     border: 1px solid transparent;
     border-radius: 100%;
     position: absolute;
     right: 8%;
-    bottom: 6%;
+    bottom: 2%;
     opacity: 0.3;
     transition: opacity 400ms, transform 850ms;
 }
 
 .solution.five{
-    width: 90px;
-    height: 90px;
     right: 15%;
-    bottom: 4%;
+    bottom: 5%;
 }
+
 .solution.eleven{
+    width: 70px;
+    height: 70px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(-20deg);
 }
 
 .solved{

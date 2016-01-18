@@ -69,25 +69,25 @@ cases[0] = {
 cases[1] = {
     fileName: "The Blind Banker",
     clueImageFolder: "banker",
-    numberClues: 7
+    numberClues: 9
 };
 cases[2] = {
     fileName: "The Great Game",
-    clueImageFile: "greatGame",
+    clueImageFolder: "greatGame",
     numberClues: 11
 };
 cases[3] = {
     fileName: "A Scandal in Belgravia",
-    clueImageFile: "belgravia",
+    clueImageFolder: "belgravia",
     numberClues: 9
 };
 cases[4] = {
     fileName: "The Hounds of Baskerville",
-    clueImageFile: "hounds",
+    clueImageFolder: "hounds",
     numberClues: 7
 };
 cases[5] = {
     fileName: "The Reichenbach Fall",
-    clueImageFile: "reichenbach",
+    clueImageFolder: "reichenbach",
     numberClues: 11
 };
