@@ -89,11 +89,12 @@
 }
 
 /* Shoe Prints */
-.eleven.horizonLine{
+.eleven#shoe1to2, .eleven#shoe4to5, .eleven#shoe7to8, .eleven#shoe10to11{
     left: 20%;
     width: 50%;
 }
-.eleven.forwardSlash{
+.eleven#shoe2to3, .eleven#shoe3to4, .eleven#shoe5to6,
+.eleven#shoe6to7, .eleven#shoe8to9, .eleven#shoe9to10{
     left: 22%;
     width: 30%;
     height: 2.5%;
@@ -104,37 +105,37 @@
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
 }
-.eleven#c1to2{
+.eleven#shoe1to2{
     top: 15%;
 }
-.eleven#c2to3{
+.eleven#shoe2to3{
     top: 22%;
     left: 45%;
 }
-.eleven#c3to4{
+.eleven#shoe3to4{
     top: 28%;
 }
-.eleven#c4to5{
+.eleven#shoe4to5{
     top: 33%;
 }
-.eleven#c5to6{
+.eleven#shoe5to6{
     top: 42%;
     left: 45%;
 }
-.eleven#c6to7{
+.eleven#shoe6to7{
     top: 48%;
 }
-.eleven#c7to8{
+.eleven#shoe7to8{
     top: 53%;
 }
-.eleven#c8to9{
+.eleven#shoe8to9{
     top: 63%;
     left: 45%;
 }
-.eleven#c9to10{
+.eleven#shoe9to10{
     top: 68%;
 }
-.eleven#c10to11{
+.eleven#shoe10to11{
     top: 73%;
 }
 
@@ -177,39 +178,39 @@
 }
 /* Shoe Prints */
 /* Backslashes */
-.nine.backSlash{
+.nine#shoe1to2, .nine#shoe3to4, .nine#shoe5to6, .nine#shoe7to8{
     transform: rotate(20deg);
     width: 50%;
     left: 23%;
 }
-.nine#c1to2{
+.nine#shoe1to2{
     top: 17%;
 }
-.nine#c3to4{
+.nine#shoe3to4{
     top: 32%;
 }
-.nine#c5to6{
+.nine#shoe5to6{
     top: 49%;
 }
-.nine#c7to8{
+.nine#shoe7to8{
     top: 64%;
 }
 /* Forward Slashes */
-.nine.forwardSlash{
+.nine#shoe2to3, .nine#shoe4to5, .nine#shoe6to7, .nine#shoe8to9{
     transform: rotate(155deg);
     width: 50%;
     left: 23%;
 }
-.nine#c2to3{
+.nine#shoe2to3{
     top: 25%;
 }
-.nine#c4to5{
+.nine#shoe4to5{
     top: 42%;
 }
-.nine#c6to7{
+.nine#shoe6to7{
     top: 57%;
 }
-.nine#c8to9{
+.nine#shoe8to9{
     top: 73%;
 }
 
@@ -245,33 +246,33 @@
 }
 /* Shoe Prints */
 /* Backslash */
-.seven.backSlash{
+.seven#shoe1to2, .seven#shoe3to4, .seven#shoe5to6{
     transform: rotate(25deg);
     width: 50%;
     left: 23%;
 }
-.seven#c1to2{
+.seven#shoe1to2{
     top: 17%;
 }
-.seven#c3to4{
+.seven#shoe3to4{
     top: 37%;
 }
-.seven#c5to6{
+.seven#shoe5to6{
     top: 57%;
 }
 /* Forward Slash */
-.seven.forwardSlash{
+.seven#shoe2to3, .seven#shoe4to5, .seven#shoe6to7{
     transform: rotate(148deg);
     width: 50%;
     left: 23%;
 }
-.seven#c2to3{
+.seven#shoe2to3{
     top: 28%;
 }
-.seven#c4to5{
+.seven#shoe4to5{
     top: 48%;
 }
-.seven#c6to7{
+.seven#shoe6to7{
     top: 68%;
 }
 
@@ -299,48 +300,60 @@
 }
 /* Shoe Prints */
 /* Backslash */
-.five.backSlash{
+.five#shoe1to2, .five#shoe3to4{
     transform: rotate(40deg);
     width: 50%;
     left: 26%;
 }
-.five#c1to2{
+.five#shoe1to2{
     top: 21%;
 }
-.five#c3to4{
+.five#shoe3to4{
     top: 51%;
 }
 /* Forward Slash */
-.five.forwardSlash{
+.five#shoe2to3, .five#shoe4to5{
     transform: rotate(134deg);
     width: 50%;
     left: 25%;
 }
-.five#c2to3{
+.five#shoe2to3{
     top: 36%;
 }
-.five#c4to5{
+.five#shoe4to5{
     top: 66%;
 }
 
-/* Solution Positions */
+/* Solution */
 .solution{
     width: 70px;
     height: 70px;
-    border: 1px solid #1a1a1a;
+    border: 1px solid transparent;
     border-radius: 100%;
     position: absolute;
-    right: 5%;
+    right: 8%;
     bottom: 6%;
+    opacity: 0.3;
+    transition: opacity 400ms, transform 850ms;
 }
-.solved{
-    background: url("../images/clues/closedStamp.png");
-    background-size: 150%;
-    background-position: center;
-    border-color: transparent;
+
+.solution.five{
+    width: 90px;
+    height: 90px;
+    right: 15%;
+    bottom: 4%;
 }
-/* One part case (final case) */
 .solution.eleven{
     left: 50%;
     transform: translateX(-50%);
+}
+
+.solved{
+    opacity: 1;
+    background: url("../images/clues/closedStamp.png");
+    background-size: 150%;
+    background-position: center;
+}
+.solved.five, .solved.seven, .solved.nine{
+    transform: rotate(-20deg);
 }

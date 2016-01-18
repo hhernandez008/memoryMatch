@@ -18,7 +18,7 @@ var cards ={
 
 // global variable to hold the game object
 var game;
-// String representing the number of matches in the game
+var caseClues;
 var matchClass;
 // global variables to hold stats id's
 var $gamesPlayedDisplay, $matchesMadeDisplay, $totalMatchesDisplay, $accuracyDisplay;
@@ -31,13 +31,10 @@ $(document).ready(function(){
     $accuracyDisplay = $("#clueAccuracy");
 
     game = new MatchingGame("#gameArea", cards, winCallback);
-    setGameBoard(5);
+    openCase(cases[0]);
 
     $(".card").click(function(){
-        setTimeout(function(){
-            $($matchesMadeDisplay).text(game.stats.matchesMade);
-            $($accuracyDisplay).text(game.stats.matchAccuracyPercent());
-        }, 500);
+        setTimeout(updateGameStats(), 500);
 
     });
 
@@ -52,8 +49,25 @@ function setGameBoard(totalMatches){
     $($matchesMadeDisplay).text(0);
     $($totalMatchesDisplay).text(totalMatches);
     $($accuracyDisplay).text("0%");
-    matchClass = matchesToString(totalMatches);
-    additionalClasses(matchClass);
+    addExtraClass("#gameArea", matchClass);
+    addExtraClass(".card", matchClass);
+}
+function openCase(caseObject){
+    matchClass = matchesToString(caseObject.numberClues);
+    setGameBoard(caseObject.numberClues);
+    caseClues = new CaseCreator("#clueArea", caseObject);
+    caseClues.createClues();
+    addExtraClass(".solution", matchClass);
+}
+
+function updateGameStats(){
+    $($matchesMadeDisplay).text(game.stats.matchesMade);
+    $($accuracyDisplay).text(game.stats.matchAccuracyPercent());
+    setTimeout(function(){
+        caseClues.fillClue(game.stats.matchesMade);
+        addExtraClass(".shoePrint", matchClass);
+    }, 500);
+
 }
 
 //Make the totalMatches into a string for class assignments for the cards and game container
@@ -73,10 +87,9 @@ function matchesToString(totalMatches){
     }
 }
 
-//Assign the className to the game board & card containers for formatting
-function additionalClasses(className){
-    $("#gameArea").addClass(className);
-    $(".card").addClass(className);
+//Assign the className to the game board, card containers, & clue solution for formatting
+function addExtraClass(location, className){
+    $(location).addClass(className);
 }
 
 //TODO: winning function
