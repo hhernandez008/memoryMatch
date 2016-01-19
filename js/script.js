@@ -16,8 +16,8 @@ var cards ={
     back: "images/cardBack.png"
 };
 
-// global variable to hold the game object
 var game;
+var caseIndex;
 var caseClues;
 var matchClass;
 // global variables to hold stats id's
@@ -31,16 +31,44 @@ $(document).ready(function(){
     $accuracyDisplay = $("#clueAccuracy");
 
     game = new MatchingGame("#gameArea", cards, winCallback);
-    openCase(cases[0]);
 
-    $(".card").click(function(){
+    $("#caseSelector").on("click", ".case", function(){
+        var caseId = $(this).attr("id");
+        for(var i = 0; i < cases.length; i++){
+            if(caseId == cases[i].clueImageFolder){
+                caseIndex = i;
+                i = cases.length;
+            }
+        }
+        openCase(cases[caseIndex]);
+        $("#caseSelector").attr("style", "visibility: hidden");
+    });
+
+    $("#gameArea").on("click", ".card", function(){
         setTimeout(updateGameStats(), 500);
+    });
 
+    $("#resetCase").click(function(){
+        game.resetGame();
+        setTimeout(function(){
+            setGameBoard(cases[caseIndex].numberClues);
+        }, 200);
+        caseClues.clearClueImages();
+        setGameClues(cases[caseIndex]);
+    });
+
+    $("#newCase").click(function(){
+        game.resetGame();
+        caseClues.clearClueImages();
+        $("#caseSelector").attr("style", "visibility: visible");
+    });
+
+    $("#aboutGame").click(function(){
+       //TODO display about game screen
     });
 
 });
 
-// TODO:adjust file font size to enlarge or shrink font to fit on tab
 
 // Create game board
 function setGameBoard(totalMatches){
@@ -52,12 +80,16 @@ function setGameBoard(totalMatches){
     addExtraClass("#gameArea", matchClass);
     addExtraClass(".card", matchClass);
 }
-function openCase(caseObject){
-    matchClass = matchesToString(caseObject.numberClues);
-    setGameBoard(caseObject.numberClues);
+function setGameClues(caseObject){
     caseClues = new CaseCreator("#clueArea", caseObject);
     caseClues.createClues();
     addExtraClass(".solution", matchClass);
+}
+function openCase(caseObject){
+    matchClass = matchesToString(caseObject.numberClues);
+    setGameBoard(caseObject.numberClues);
+    setGameClues(caseObject);
+    $("#currentCase").text(caseObject.fileName);
 }
 
 function updateGameStats(){

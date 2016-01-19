@@ -27,7 +27,7 @@
     text-align: center;
 }
 .back{
-    /*z-index: 10;*/
+    z-index: 10;
     transition: 400ms;
     transition-property: all;
 }

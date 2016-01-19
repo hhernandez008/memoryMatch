@@ -1,3 +1,39 @@
+/**
+ * Hold all of the clue information to create different game boards & fill clue section
+ * @type {Array}
+ */
+var cases = [];
+cases[0] = {
+    fileName: "A Study in Pink",
+    clueImageFolder: "pink",
+    numberClues: 5
+};
+cases[1] = {
+    fileName: "The Blind Banker",
+    clueImageFolder: "banker",
+    numberClues: 9
+};
+cases[2] = {
+    fileName: "The Great Game",
+    clueImageFolder: "greatGame",
+    numberClues: 11
+};
+cases[3] = {
+    fileName: "A Scandal in Belgravia",
+    clueImageFolder: "belgravia",
+    numberClues: 9
+};
+cases[4] = {
+    fileName: "Hounds of Baskerville",
+    clueImageFolder: "hounds",
+    numberClues: 7
+};
+cases[5] = {
+    fileName: "The Reichenbach Fall",
+    clueImageFolder: "reichenbach",
+    numberClues: 11
+};
+
 var CaseCreator = function(container, object){
     var self = this;
     self.caseName = object.fileName;
@@ -26,15 +62,17 @@ var CaseCreator = function(container, object){
     self.fillClue = function (clueNumber){
         var $clueHolder = $("#c" + clueNumber + "of" + self.totalClues);
         if(clueNumber > self.currentClue){
+            if(clueNumber > 1){
+                connectClues(clueNumber);
+            }
             var $clueImage = $("<img>",{
                 src: "images/clues/" + self.clueFile + "/clue" + clueNumber +".png",
                 class: "clueImage"
             });
+            setTimeout(function(){
+                $($clueHolder).append($clueImage);
+            }, 100);
 
-            $($clueHolder).append($clueImage);
-            if(clueNumber > 1){
-                connectClues(clueNumber);
-            }
             self.currentClue++;
             if(self.currentClue == self.totalClues){
                 setTimeout(function(){
@@ -49,45 +87,13 @@ var CaseCreator = function(container, object){
             class: "shoePrint",
             id: "shoe" + self.currentClue + "to" + clueNumber
         });
-        $(container).prepend($shoe);
+            $(container).prepend($shoe);
     }
 
+    self.clearClueImages = function(){
+        $(container).text("");
+
+    }
 
 };
 
-/**
- * Hold all of the clue information to create different game boards & fill clue section
- * @type {Array}
- */
-var cases = [];
-//access clue images with "images/" + clueImageFolder + "/clue" + matchNumber(ie 1, 2, 3)
-cases[0] = {
-    fileName: "A Study in Pink",
-    clueImageFolder: "pink",
-    numberClues: 5
-};
-cases[1] = {
-    fileName: "The Blind Banker",
-    clueImageFolder: "banker",
-    numberClues: 9
-};
-cases[2] = {
-    fileName: "The Great Game",
-    clueImageFolder: "greatGame",
-    numberClues: 11
-};
-cases[3] = {
-    fileName: "A Scandal in Belgravia",
-    clueImageFolder: "belgravia",
-    numberClues: 9
-};
-cases[4] = {
-    fileName: "The Hounds of Baskerville",
-    clueImageFolder: "hounds",
-    numberClues: 7
-};
-cases[5] = {
-    fileName: "The Reichenbach Fall",
-    clueImageFolder: "reichenbach",
-    numberClues: 11
-};

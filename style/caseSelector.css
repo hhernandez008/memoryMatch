@@ -1,0 +1,65 @@
+#caseSelector{
+    width: 90vw;
+    height: 90vh;
+    border: 10px solid #5B5D57;
+    border-radius: 10px;
+    background: url("../images/caseWall.png") rgb(226, 217, 209) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    z-index: 200;
+}
+#caseSelector>.subtitle{
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding: 0.5%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+}
+#caseSelector>hr{
+    margin: 1% 10px;
+}
+#openCases, #closedCases{
+    min-height: 25%;
+    text-align: center;
+}
+.case{
+    width: 12%;
+    height: auto;
+    margin: 1% 8%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-family: "Courier New", "courier", monospace;
+}
+
+.caseFile{
+    width: 100%;
+    height: auto;
+}
+.caseClues{
+    position: absolute;
+    top: 20%;
+    left: 2px;
+    width: 50%;
+}
+.caseClues>p{
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: 0.8em;
+}
+.caseClues>p:first-child{
+    font-size: 1.3em;
+}
+.caseTitle{
+    position: absolute;
+    bottom: -5%;
+    padding:0 5%;
+    text-align: left;
+}
+.case:hover>.caseTitle, .case:hover>.caseClues>p:first-child{
+    font-weight: bold;
+}

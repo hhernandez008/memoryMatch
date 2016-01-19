@@ -133,7 +133,7 @@ var Card = function (parent) {
 var MatchingGame = function (gameContainer, cardObject, winCallback) {
     var game = this;
     var container = gameContainer;
-    var cardFaces = cardObject.faces;
+    var cardFaces = cardObject.faces.slice(0, (cardObject.faces.length));
     var cardBack = cardObject.back;
     var gameCardsDouble = [];
     var remainingMatches = null;
@@ -223,7 +223,6 @@ var MatchingGame = function (gameContainer, cardObject, winCallback) {
         game.stats.matchesMade++;
         //decrement remainingMatches, if == 0 declare win
         if (--remainingMatches == 0) {
-            game.stats.gamesPlayed++;
             //PLAYER WINS
             //TODO: Win screen
             console.log("Win", remainingMatches);
@@ -239,21 +238,20 @@ var MatchingGame = function (gameContainer, cardObject, winCallback) {
     game.resetCardsOneTwo = function () {
         cardOne = "";
         cardTwo = "";
-        console.log("cards reset");
     };
 
+
     /**
-     * Reset the game board.
+     * Empty the game board & reset variables to their initial values.
      */
-    game.resetGame = function (callback) {
+    game.resetGame = function () {
         $(container).text("");
+        cardFaces = cardObject.faces.slice(0, (cardObject.faces.length));
         gameCardsDouble = [];
         remainingMatches = null;
         cardOne = "";
         cardTwo = "";
         game.stats.newGame();
-        //User callback for game reset
-        callback.call();
     };
 
 }; //end MatchingGame object
