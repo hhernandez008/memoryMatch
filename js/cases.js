@@ -24,7 +24,7 @@ cases[3] = {
     numberClues: 9
 };
 cases[4] = {
-    fileName: "Hounds of Baskerville",
+    fileName: "The Hounds of Baskerville",
     clueImageFolder: "hounds",
     numberClues: 7
 };
@@ -34,7 +34,7 @@ cases[5] = {
     numberClues: 11
 };
 
-var CaseCreator = function(container, object){
+var ClueCreator = function(container, object){
     var self = this;
     self.caseName = object.fileName;
     self.clueFile = object.clueImageFolder;

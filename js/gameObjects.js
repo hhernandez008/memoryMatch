@@ -86,7 +86,6 @@ var Card = function (parent) {
         $($cardContainer).on("click", card.cardClicked);
         return $cardContainer;
     };
-
     /**
      * When a card is clicked check if it can be flipped.
      * If it can be flip the card and check if it is the first or the second card flipped.
@@ -107,14 +106,12 @@ var Card = function (parent) {
             card.parent.cardsMatch();
         }
     };
-
     /**
      * Add faceUp class to the card to show the card's face.
      */
     card.turnCardFaceUp = function () {
         $(card.id).addClass("faceUp");
     };
-
     /**
      * Flip card back over to its start position (face down).
      */
@@ -223,13 +220,12 @@ var MatchingGame = function (gameContainer, cardObject, winCallback) {
         game.stats.matchesMade++;
         //decrement remainingMatches, if == 0 declare win
         if (--remainingMatches == 0) {
-            console.log("Win", remainingMatches);
+            game.stats.gamesWon++;
             winCallback.call();
         }
         game.resetCardsOneTwo();
         return true;
     };
-
     /**
      * Reset the value of the cardOne and cardTwo.
      */
@@ -237,8 +233,6 @@ var MatchingGame = function (gameContainer, cardObject, winCallback) {
         cardOne = "";
         cardTwo = "";
     };
-
-
     /**
      * Empty the game board & reset variables to their initial values.
      */

@@ -65,7 +65,6 @@
                 </div>
                 <h6 class="caseTitle">The Hounds of Baskerville</h6>
             </div>
-
             <div id="reichenbach" class="case">
                 <img src="images/caseFiles/reinchbachFile.png" class="caseFile">
                 <div class="caseClues">
@@ -84,7 +83,13 @@
     <div class="navigation navbar-inverse">
         <div>
             <div id="caseStats">
-                Cases Closed: <span id="casesClosed">&nbsp;</span>
+                <div id="gameStats">
+                    Cases Opened: <span id="casesOpened">&nbsp;</span>
+                </div>
+                <div id="gamesFinished">
+                    Cases Closed:
+                    <span id="casesClosed">&nbsp;</span>
+                </div>
             </div>
             <div id="title">
                 <div class="letterSquare">S</div>
@@ -97,7 +102,7 @@
                 <div class="letterSquare">K</div>
             </div>
         </div>
-        <div id="caseFiles">
+        <div id="gameOptions">
             <div class="subtitle">
                 Case Files
             </div>
@@ -119,12 +124,13 @@
     <div class="background row">
         <div class="sideBar">
             <h4 class="subtitle">
-                Accuracy: <span id="clueAccuracy">&nbsp;</span>
+                Accuracy:
+                <span id="clueAccuracy">&nbsp;</span>
             </h4>
             <h4 class="subtitle">
                 Clues Found:
                 <span id="cluesFound">&nbsp;</span>
-                /
+                &#47;
                 <span id="cluesRemain">&nbsp;</span>
             </h4>
             <hr>

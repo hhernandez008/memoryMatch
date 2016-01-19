@@ -19,7 +19,6 @@
 .clue{
     width: 60px;
     height: 60px;
-    /*border: 2px solid;*/
     border-radius: 100%;
     position: absolute;
     text-align: center;
@@ -62,19 +61,23 @@
 }
 
 /* Middle Clues */
+#c3of11, #c6of11, #c9of11{
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
 #c3of11{
     left: 50%;
-    transform: translateX(-50%);
     top: 12%;
 }
 #c6of11{
     left: 50%;
-    transform: translateX(-50%);
     top: 36%;
 }
 #c9of11{
     left: 50%;
-    transform: translateX(-50%);
     top: 60%;
 }
 
@@ -186,6 +189,10 @@
 /* Shoe Prints */
 /* Backslashes */
 .nine#shoe1to2, .nine#shoe3to4, .nine#shoe5to6, .nine#shoe7to8{
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
     transform: rotate(15deg);
     width: 50%;
     left: 23%;
@@ -204,6 +211,10 @@
 }
 /* Forward Slashes */
 .nine#shoe2to3, .nine#shoe4to5, .nine#shoe6to7, .nine#shoe8to9{
+    -webkit-transform: rotate(160deg);
+    -moz-transform: rotate(160deg);
+    -ms-transform: rotate(160deg);
+    -o-transform: rotate(160deg);
     transform: rotate(160deg);
     width: 50%;
     left: 23%;
@@ -255,6 +266,10 @@
 /* Shoe Prints */
 /* Backslash */
 .seven#shoe1to2, .seven#shoe3to4, .seven#shoe5to6{
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
     transform: rotate(20deg);
     width: 50%;
     left: 23%;
@@ -270,6 +285,10 @@
 }
 /* Forward Slash */
 .seven#shoe2to3, .seven#shoe4to5, .seven#shoe6to7{
+    -webkit-transform: rotate(155deg);
+    -moz-transform: rotate(155deg);
+    -ms-transform: rotate(155deg);
+    -o-transform: rotate(155deg);
     transform: rotate(155deg);
     width: 50%;
     left: 23%;
@@ -310,6 +329,10 @@
 /* Shoe Prints */
 /* Backslash */
 .five#shoe1to2, .five#shoe3to4{
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
     transform: rotate(30deg);
     width: 55%;
     left: 23%;
@@ -322,6 +345,10 @@
 }
 /* Forward Slash */
 .five#shoe2to3, .five#shoe4to5{
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    -o-transform: rotate(150deg);
     transform: rotate(150deg);
     width: 55%;
     left: 23%;
@@ -343,7 +370,11 @@
     right: 8%;
     bottom: 2%;
     opacity: 0.3;
-    transition: opacity 400ms, transform 850ms;
+    -webkit-transition: opacity 400ms, transform 850ms;
+    -moz-transition: opacity 400ms, transform 850ms ;
+    -ms-transition: opacity 400ms, transform 850ms ;
+    -o-transition: opacity 400ms, transform 850ms ;
+    transition: opacity 400ms, transform 850ms ;
 }
 
 .solution.five{
@@ -355,6 +386,10 @@
     width: 70px;
     height: 70px;
     left: 50%;
+    -webkit-transform: translateX(-50%) rotate(-20deg);
+    -moz-transform: translateX(-50%) rotate(-20deg);
+    -ms-transform: translateX(-50%) rotate(-20deg);
+    -o-transform: translateX(-50%) rotate(-20deg);
     transform: translateX(-50%) rotate(-20deg);
 }
 
@@ -365,5 +400,9 @@
     background-position: center;
 }
 .solved.five, .solved.seven, .solved.nine{
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
