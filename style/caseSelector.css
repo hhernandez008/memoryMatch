@@ -9,6 +9,13 @@
     top: 5vh;
     left: 5vw;
     z-index: 200;
+    transition: 1s;
+}
+.open{
+    opacity: 1;
+}
+.closed{
+    opacity: 0;
 }
 #caseSelector>.subtitle{
     color: #ffffff;

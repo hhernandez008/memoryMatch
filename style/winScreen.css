@@ -1,0 +1,60 @@
+#winWindow{
+    width: 60vw;
+    height: 35vw;
+    margin: 1% 0;
+    background: url("../images/sherlockAndJohn.png") rgb(226, 217, 209) no-repeat;
+    background-size: 100% auto;
+    border: 10px solid #5B5D57;
+    border-radius: 10px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    z-index: 500;
+    box-sizing: content-box;
+    transition: 1s;
+}
+.winContainer{
+    width: 40%;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    position: relative;
+    top: 4%;
+    left: 30%;
+    text-align: center;
+}
+#winTitle{
+    color: #ffffff;
+    margin: 2%;
+}
+.closedCase{
+    position: relative;
+}
+.closedCase>.caseFile{
+    width: 65%;
+    margin: 5%;
+}
+.closedCase>.closedStamp{
+    width: 80%;
+    position: absolute;
+    top: 30%;
+    left: 9%;
+}
+.btn-default{
+    margin: 5%;
+    color: #ffffff;
+}
+.btn-default.newCase{
+    background-color: #28394F;
+    border-color: #6F799D;
+}
+.btn-default.resetCase{
+    background-color: #A9675D;
+    border-color: #BC8B83;
+}
+.btn-default.newCase:hover{
+    color: #a1a1a1;
+}
+.btn-default>.caseTitle{
+    position: relative;
+}

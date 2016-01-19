@@ -30,7 +30,7 @@ $(document).ready(function(){
     $totalMatchesDisplay = $("#cluesRemain");
     $accuracyDisplay = $("#clueAccuracy");
 
-    game = new MatchingGame("#gameArea", cards, winCallback);
+    game = new MatchingGame("#gameArea", cards, userWins);
 
     $("#caseSelector").on("click", ".case", function(){
         var caseId = $(this).attr("id");
@@ -40,27 +40,39 @@ $(document).ready(function(){
                 i = cases.length;
             }
         }
-        openCase(cases[caseIndex]);
-        $("#caseSelector").attr("style", "visibility: hidden");
+        $("#caseSelector").addClass("closed")
+            .removeClass("open")
+            .attr("style", "visibility: hidden");
+        setTimeout(function(){
+            openCase(cases[caseIndex]);
+        }, 500);
     });
 
     $("#gameArea").on("click", ".card", function(){
         setTimeout(updateGameStats(), 500);
     });
 
-    $("#resetCase").click(function(){
+    $(".resetCase").click(function(){
         game.resetGame();
         setTimeout(function(){
             setGameBoard(cases[caseIndex].numberClues);
-        }, 200);
+        }, 500);
         caseClues.clearClueImages();
         setGameClues(cases[caseIndex]);
+        $("#winWindow").addClass("closed")
+            .removeClass("open")
+            .attr("style", "visibility: hidden");
     });
 
-    $("#newCase").click(function(){
+    $(".newCase").click(function(){
         game.resetGame();
         caseClues.clearClueImages();
-        $("#caseSelector").attr("style", "visibility: visible");
+        $("#winWindow").addClass("closed")
+            .removeClass("open")
+            .attr("style", "visibility: hidden");
+        $("#caseSelector").addClass("open")
+            .removeClass("closed")
+            .attr("style", "visibility: visible");
     });
 
     $("#aboutGame").click(function(){
@@ -124,8 +136,25 @@ function addExtraClass(location, className){
     $(location).addClass(className);
 }
 
-//TODO: winning function
-function winCallback(){
-
+function userWins(){
+    enterCaseInfo();
+    moveToClosedCases();
+    setTimeout(function(){
+        $("#winWindow").addClass("open")
+            .removeClass("closed")
+            .attr("style", "visibility: visible");
+    }, 1560);
 }
 
+function enterCaseInfo(){
+    $("#winTitle").text(cases[caseIndex].fileName);
+    var caseFileImage = $("#" + cases[caseIndex].clueImageFolder).find("img").attr("src");
+    console.log(caseFileImage);
+    $(".closedCase>.caseFile").attr("src", caseFileImage);
+    $(".btn>.caseTitle").text(cases[caseIndex].fileName);
+}
+
+function moveToClosedCases(){
+    var caseFile = $("#openCases>#" + cases[caseIndex].clueImageFolder).detach();
+    $("#closedCases").prepend(caseFile);
+}

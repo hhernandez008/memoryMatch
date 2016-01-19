@@ -223,10 +223,8 @@ var MatchingGame = function (gameContainer, cardObject, winCallback) {
         game.stats.matchesMade++;
         //decrement remainingMatches, if == 0 declare win
         if (--remainingMatches == 0) {
-            //PLAYER WINS
-            //TODO: Win screen
             console.log("Win", remainingMatches);
-            //winCallback.call();
+            winCallback.call();
         }
         game.resetCardsOneTwo();
         return true;

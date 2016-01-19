@@ -6,6 +6,7 @@
     <title>Start</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/caseSelector.css">
+    <link rel="stylesheet" href="style/winScreen.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -15,8 +16,17 @@
 </head>
 <body>
 <div id="winWindow">
-    <h2 id="closedTitle">&nbsp;</h2>
-
+    <div class="winContainer">
+        <h2 id="winTitle">The Reichenbach Fall</h2>
+        <img src="images/caseFiles/reinchbachFile.png" class="caseFile">
+        <img src="images/caseClosedStamp.png" class="closedStamp">
+        <button type="button" class="btn btn-default newCase">
+            Open New Case
+        </button>
+        <button type="button" class="btn btn-default resetCase">
+            Re-investigate <span class="caseTitle"></span>
+        </button>
+    </div>
 </div>
 
 </body>
