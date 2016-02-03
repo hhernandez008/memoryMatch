@@ -9,27 +9,26 @@
     position: absolute;
     top: 20%;
     left: 30%;
-    z-index: 500;
     box-sizing: content-box;
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -ms-transition: 1s;
     -o-transition: 1s;
     transition: 1s;
+    overflow: hidden;
+}
+.modal-dialog{
+    height: 100%;
+    margin: 0 auto;
 }
 .winContainer{
     width: 40%;
+    height: 100%;
     padding: 2%;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 3px;
     position: relative;
-    top: 50%;
     left: 30%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
     text-align: center;
 }
 #winTitle{

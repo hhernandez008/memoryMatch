@@ -139,22 +139,24 @@
         </div>
         <div id="gameArea"></div>
     </div>
-    <div id="winWindow" class="closed" style="visibility: hidden">
-        <div class="winContainer">
-            <h2 id="winTitle"></h2>
-            <div class="closedCase">
-                <img src="images/caseClosedStamp.png" class="closedStamp">
-                <img src="" class="caseFile">
-            </div>
-            <div>
-                <button type="button" class="btn btn-default newCase">
-                    Open New Case
-                </button>
-                <button type="button" class="btn btn-default resetCase">
-                    Re-investigate
-                    <br>
-                    <span class="caseTitle"></span>
-                </button>
+    <div id="winWindow" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content winContainer">
+                <h2 id="winTitle"></h2>
+                <div class="closedCase">
+                    <img src="images/caseClosedStamp.png" class="closedStamp">
+                    <img src="" class="caseFile">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-default newCase">
+                        Open New Case
+                    </button>
+                    <button type="button" class="btn btn-default resetCase">
+                        Re-investigate
+                        <br>
+                        <span class="caseTitle"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
