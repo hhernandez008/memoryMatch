@@ -68,9 +68,7 @@ $(document).ready(function(){
         game.resetGame();
         caseClues.clearClueImages();
         // if the player won hide #winWindow
-        $("#winWindow").addClass("closed")
-            .removeClass("open")
-            .attr("style", "visibility: hidden");
+        $("#winWindow").modal("hide");
         setGameClues(cases[caseIndex]);
         setTimeout(function(){
             setGameBoard(cases[caseIndex].numberClues);
@@ -81,9 +79,7 @@ $(document).ready(function(){
         game.resetGame();
         caseClues.clearClueImages();
         // if the player won hide the #winWindow
-        $("#winWindow").addClass("closed")
-            .removeClass("open")
-            .attr("style", "visibility: hidden");
+        $("#winWindow").modal("hide");
         $("#caseSelector").addClass("open")
             .removeClass("closed")
             .attr("style", "visibility: visible");
@@ -163,9 +159,7 @@ function userWins(){
     moveToClosedCases();
     //Delay so that all other features are displayed before being covered
     setTimeout(function(){
-        $("#winWindow").addClass("open")
-            .removeClass("closed")
-            .attr("style", "visibility: visible");
+        $("#winWindow").modal("show");
     }, 1560);
 }
 // Add case title and folder to the #winWindow
