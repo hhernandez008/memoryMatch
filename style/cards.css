@@ -1,0 +1,141 @@
+/* Card Area */
+#gameArea{
+    width: 80%;
+    height: 100%;
+    padding-top: 1%;
+    float: right;
+    text-align: center;
+}
+
+/* Card Container */
+.card{
+    margin: 2%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+/* Card Image Container & Images */
+.back, .face{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center;
+}
+.back{
+    z-index: 10;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: all 400ms;
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    transition: all 400ms;
+}
+.face{
+    -webkit-transform: translateX(-50%) rotateY(180deg);
+    -moz-transform: translateX(-50%) rotateY(180deg);
+    -ms-transform: translateX(-50%) rotateY(180deg);
+    -o-transform: translateX(-50%) rotateY(180deg);
+    transform: translateX(-50%) rotateY(180deg);
+}
+.back>img, .face>img {
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;;
+    background: black;
+}
+
+/* Adjust for different game sizes */
+/* 5 Matches (10 card game) */
+#gameArea.five{
+    margin: 2% 0;
+    height: 90%;
+}
+.card.five{
+    width: 15%;
+    height: 40%;
+}
+/* 7 Matches (14 card game) */
+#gameArea.seven{
+    padding: 0 10%;
+    padding-top: 1%;
+}
+.card.seven{
+    width: 15%;
+    height: 28%;
+    margin: 1% 2%;
+}
+.card.seven:nth-child(6){
+    margin-left: 5%;
+}
+.card.seven:nth-child(9){
+    margin-right: 5%;
+}
+
+/* 9 Matches (18 card game) */
+.card.nine{
+    width: 13%;
+    height: 28%;
+    margin: 1%;
+}
+
+/* 11 Matches (22 card game) */
+.card.eleven:nth-child(n+8){
+    width: 10%;
+    margin: 1%;
+}
+.card.eleven, .card.eleven:nth-child(n+16){
+    width: 12%;
+    height: 24%;
+    margin: 2.5% 0;
+}
+
+.card.eleven:nth-child(1), .card.eleven:nth-child(16){
+    margin-left: 3%;
+}
+.card.eleven:nth-child(7), .card.eleven:nth-child(22){
+    margin-right: 3%;
+}
+
+
+
+/* Card Animations */
+/* Flip card to show face */
+.faceUp{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.faceUp>.back{
+    z-index: 0;
+}
+/* Flip card to show back */
+.flipBack{
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+/* Reshow card back */
+.showBack .back{
+    z-index: 10;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sherlock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/clues.css">
+    <link rel="stylesheet" href="style/cards.css">
+    <link rel="stylesheet" href="style/caseSelector.css">
+    <link rel="stylesheet" href="style/winScreen.css">
+
+    <!-- Script Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/gameObjects.js"></script>
+    <script src="js/cases.js"></script>
+
+</head>
+<body class="container-fluid">
+    <div id="caseSelector" class="open">
+        <h3 class="subtitle">Open New Case:</h3>
+        <div id="openCases">
+            <div id="pink" class="case">
+                <img src="images/caseFiles/pinkFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>5</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">A Study in Pink</h6>
+            </div>
+            <div id="banker" class="case">
+                <img src="images/caseFiles/bankerFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>9</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">The Blind Banker</h6>
+            </div>
+            <div id="greatGame" class="case">
+                <img src="images/caseFiles/greatGameFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>11</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">The Great Game</h6>
+            </div>
+            <div id="belgravia" class="case">
+                <img src="images/caseFiles/belgraviaFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>9</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">A Scandal in Belgravia</h6>
+            </div>
+            <div id="hounds" class="case">
+                <img src="images/caseFiles/houndsFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>7</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">The Hounds of Baskerville</h6>
+            </div>
+            <div id="reichenbach" class="case">
+                <img src="images/caseFiles/reinchbachFile.png" class="caseFile">
+                <div class="caseClues">
+                    <p>11</p>
+                    <p>Clues to Find</p>
+                </div>
+                <h6 class="caseTitle">The Reichenbach Fall</h6>
+            </div>
+        </div>
+        <hr>
+        <h3 class="subtitle">Re-Investigate Closed Case:</h3>
+        <div id="closedCases">
+
+        </div>
+    </div>
+    <div class="navigation navbar-inverse">
+        <div>
+            <div id="caseStats">
+                <div id="gameStats">
+                    Cases Opened: <span id="casesOpened">&nbsp;</span>
+                </div>
+                <div id="gamesFinished">
+                    Cases Closed:
+                    <span id="casesClosed">&nbsp;</span>
+                </div>
+            </div>
+            <div id="title">
+                <div class="letterSquare">S</div>
+                <div class="letterSquare">H</div>
+                <div class="letterSquare">E</div>
+                <div class="letterSquare">R</div>
+                <div class="letterSquare">L</div>
+                <div class="letterSquare">O</div>
+                <div class="letterSquare">C</div>
+                <div class="letterSquare">K</div>
+                <!--<h2 style="color: #ffffff; margin: 0;">SHERLOCK &nbsp; DEDUCES</h2>-->
+            </div>
+        </div>
+        <div id="gameOptions">
+            <div class="subtitle">
+                Case Files
+            </div>
+            <div class="file" id="currentCase">
+                &nbsp;
+            </div>
+            <div class="file resetCase">
+                Restart Case
+            </div>
+            <div class="file newCase">
+                Open New Case
+            </div>
+            <div class="file" id="aboutGame">
+                About Game
+            </div>
+        </div>
+
+    </div>
+    <div class="background row">
+        <div class="sideBar">
+            <h4 class="subtitle">
+                Accuracy:
+                <span id="clueAccuracy">&nbsp;</span>
+            </h4>
+            <h4 class="subtitle">
+                Clues Found:
+                <span id="cluesFound">&nbsp;</span>
+                &#47;
+                <span id="cluesRemain">&nbsp;</span>
+            </h4>
+            <hr>
+            <div id="clueArea"></div>
+        </div>
+        <div id="gameArea"></div>
+    </div>
+    <div id="winWindow" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content winContainer">
+                <h2 id="winTitle"></h2>
+                <div class="closedCase">
+                    <img src="images/caseClosedStamp.png" class="closedStamp">
+                    <img src="" class="caseFile">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-default newCase">
+                        Open New Case
+                    </button>
+                    <button type="button" class="btn btn-default resetCase">
+                        Re-investigate
+                        <br>
+                        <span class="caseTitle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
