@@ -76,7 +76,7 @@ body{
 
 /* Game Area */
 .background{
-    background: url("../images/sherlock.png") #ead295 no-repeat;
+    background: url("../images/sherlockBackground.jpg") #ead295 no-repeat;
     background-size: 100%;
     background-position: left;
     height: 85.5%;
