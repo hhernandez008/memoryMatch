@@ -1,19 +1,19 @@
 var cards ={
     faces: [
-        "images/cardFaces/andersonCard.png",
-        "images/cardFaces/donovanCard.png",
-        "images/cardFaces/hudsonCard.png",
-        "images/cardFaces/ireneCard.png",
-        "images/cardFaces/lestradCard.png",
-        "images/cardFaces/maryCard.png",
-        "images/cardFaces/mollyCard.png",
-        "images/cardFaces/moriartyCard.png",
-        "images/cardFaces/mycroftCard.png",
-        "images/cardFaces/pinkCard.png",
-        "images/cardFaces/sherlockCard.png",
-        "images/cardFaces/watsonCard.png"
+        "images/cardFaces/andersonCard.jpg",
+        "images/cardFaces/donovanCard.jpg",
+        "images/cardFaces/hudsonCard.jpg",
+        "images/cardFaces/ireneCard.jpg",
+        "images/cardFaces/lestradCard.jpg",
+        "images/cardFaces/maryCard.jpg",
+        "images/cardFaces/mollyCard.jpg",
+        "images/cardFaces/moriartyCard.jpg",
+        "images/cardFaces/mycroftCard.jpg",
+        "images/cardFaces/pinkCard.jpg",
+        "images/cardFaces/sherlockCard.jpg",
+        "images/cardFaces/watsonCard.jpg"
     ],
-    back: "images/cardBack.png"
+    back: "images/cardBack.jpg"
 };
 // variable for the game object
 var game;
